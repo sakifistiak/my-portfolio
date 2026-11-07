@@ -111,7 +111,7 @@ export function Hero() {
                   </span>
                 </div>
                 <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-0.5">
-                  Laravel Developer Intern @ Ecare Solution
+                  Former Development Team Lead @ Ecare Solution
                 </div>
               </div>
             </div>
@@ -133,19 +133,19 @@ export function Hero() {
             </p>
 
             <p className="mt-4 text-base text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl">
-              Early-career developer and technology entrepreneur blending robust PHP &amp; Laravel backend development, MySQL databases, and Linux server management with business strategy. Focused on building practical digital products that solve genuine commercial problems.
+              Early-career developer and technology entrepreneur blending robust PHP &amp; Laravel backend development, MySQL databases, and Linux server management with business strategy. Former Development Team Lead at Ecare Solution, experienced with technical hosting at Hostnin, and focused on building practical digital products.
             </p>
 
             {/* Quick credentials pill row */}
             <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-neutral-600 dark:text-neutral-400">
               <span className="rounded-md border border-neutral-200 bg-neutral-100/80 px-2.5 py-1 dark:border-neutral-800 dark:bg-neutral-800/60">
-                Intern @ Ecare Solution
+                Ex-Team Lead @ Ecare Solution
+              </span>
+              <span className="rounded-md border border-neutral-200 bg-neutral-100/80 px-2.5 py-1 dark:border-neutral-800 dark:bg-neutral-800/60">
+                Support Exp @ Hostnin
               </span>
               <span className="rounded-md border border-neutral-200 bg-neutral-100/80 px-2.5 py-1 dark:border-neutral-800 dark:bg-neutral-800/60">
                 BBA @ Varendra University
-              </span>
-              <span className="rounded-md border border-neutral-200 bg-neutral-100/80 px-2.5 py-1 dark:border-neutral-800 dark:bg-neutral-800/60">
-                Linux &amp; VPS Sysadmin
               </span>
             </div>
 

@@ -91,12 +91,11 @@ export function TerminalIntro() {
         result = (
           <div className="space-y-1.5 text-xs text-neutral-300">
             <p className="text-sky-400 font-semibold">Featured Projects:</p>
-            <p><span className="text-amber-400">1. PingoLine:</span> Communication technology product brand & platform</p>
+            <p><span className="text-amber-400">1. PingoLine (ezyPBX):</span> Unified business communications & cloud PBX platform</p>
             <p><span className="text-amber-400">2. Siusho:</span> WhatsApp & Telegram personal assistant bot</p>
-            <p><span className="text-amber-400">3. ezyPBX:</span> IP telephony & cloud PBX service architecture</p>
-            <p><span className="text-amber-400">4. Digital Khata:</span> Laravel digital accounting & ledger bookkeeping</p>
-            <p><span className="text-amber-400">5. Sakiffo Task Reminder:</span> React + Laravel + MySQL task system</p>
-            <p><span className="text-amber-400">6. VU Resource:</span> University student academic resource hub concept</p>
+            <p><span className="text-amber-400">3. Digital Khata:</span> Laravel digital accounting & ledger bookkeeping</p>
+            <p><span className="text-amber-400">4. Sakiffo Task Reminder:</span> React + Laravel + MySQL task system</p>
+            <p><span className="text-amber-400">5. VU Resource:</span> University student academic resource hub concept</p>
             <p className="text-neutral-400 italic">Scroll down to the Projects section to inspect architectural specs.</p>
           </div>
         );
@@ -106,10 +105,12 @@ export function TerminalIntro() {
         result = (
           <div className="space-y-1 text-xs text-neutral-300">
             <p className="text-emerald-400 font-semibold">Contact & Coordinates:</p>
+            <p>• Phone / WhatsApp: {personalInfo.socialLinks.phone}</p>
             <p>• Email: {personalInfo.socialLinks.email}</p>
             <p>• Location: {personalInfo.location} (GMT+6)</p>
             <p>• GitHub: {personalInfo.socialLinks.github}</p>
             <p>• LinkedIn: {personalInfo.socialLinks.linkedin}</p>
+            <p>• Facebook: {personalInfo.socialLinks.facebook}</p>
           </div>
         );
         break;
@@ -118,9 +119,10 @@ export function TerminalIntro() {
         result = (
           <div className="space-y-1 text-xs text-neutral-300">
             <p className="text-purple-400 font-semibold">Career & Academic Path:</p>
-            <p>• <strong className="text-neutral-100">Ecare Solution</strong> — Laravel Developer Intern (2024 — Present)</p>
+            <p>• <strong className="text-neutral-100">Ecare Solution</strong> — Development Team Lead (2024 — Jan 2027)</p>
+            <p>• <strong className="text-neutral-100">Hostnin</strong> — Technical Support Specialist (6 Months)</p>
             <p>• <strong className="text-neutral-100">Varendra University</strong> — BBA in Business Administration (2022 — Present)</p>
-            <p>• Independent technology building & VPS server management</p>
+            <p>• Independent technology building & SaaS products</p>
           </div>
         );
         break;

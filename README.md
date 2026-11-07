@@ -21,9 +21,8 @@ Built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and **
   - Global hotkey to jump to any section, trigger theme toggles, inspect projects, or copy contact credentials
 - **Architectural Project Showcase**:
   - Deep-dive modals inspecting architectural highlights for featured projects:
-    - **PingoLine**: Communication-focused technology brand & portal
+    - **PingoLine (ezyPBX)**: Cloud PBX, IP telephony & unified communications platform
     - **Siusho**: WhatsApp & Telegram personal productivity bot
-    - **ezyPBX**: IP telephony & cloud PBX service architecture
     - **Digital Khata**: Laravel digital accounting & ledger bookkeeping
     - **Sakiffo Task Reminder**: Decoupled React + Laravel RESTful API
     - **VU Resource**: Educational resource hub for university students
@@ -91,7 +90,11 @@ npm run start
 
 ## 👤 Identity & Profile
 
-- **Name**: Sakif Istiak Fahim
+- **Name**: Sakif Istiak Fahim (Sakif Istiak)
 - **Location**: Rajshahi, Bangladesh
 - **Education**: BBA Student at Varendra University
-- **Role**: Laravel Developer Intern at Ecare Solution
+- **Role**: Former Development Team Lead at Ecare Solution • Independent Product Builder
+- **Phone**: +880 1727-164101
+- **GitHub**: [github.com/sakifistiak](https://github.com/sakifistiak)
+- **LinkedIn**: [linkedin.com/in/sakifistiak](https://www.linkedin.com/in/sakifistiak)
+- **Facebook**: [facebook.com/sakifistiak1](https://www.facebook.com/sakifistiak1/)

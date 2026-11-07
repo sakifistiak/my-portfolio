@@ -10,6 +10,7 @@ import {
   Check,
   MessageSquare,
   ArrowUpRight,
+  Phone,
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, FacebookIcon } from './Icons';
 import confetti from 'canvas-confetti';
@@ -27,11 +28,18 @@ export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalInfo.socialLinks.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(personalInfo.socialLinks.phone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2500);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -106,6 +114,46 @@ export function ContactSection() {
                     <Copy className="h-4 w-4" />
                   )}
                 </button>
+              </div>
+
+              {/* Phone & WhatsApp Card */}
+              <div className="mt-3 flex items-center justify-between rounded-xl border border-neutral-200/80 bg-neutral-100/70 p-3 dark:border-neutral-800 dark:bg-neutral-800/60">
+                <a
+                  href={`tel:${personalInfo.socialLinks.phone}`}
+                  className="flex items-center gap-2.5 overflow-hidden transition hover:opacity-80"
+                >
+                  <div className="rounded-lg bg-white p-2 text-emerald-600 shadow-2xs dark:bg-neutral-700 dark:text-emerald-400 shrink-0">
+                    <Phone className="h-4 w-4" />
+                  </div>
+                  <div className="truncate">
+                    <div className="text-[10px] font-mono text-neutral-400 uppercase">Direct Phone / WhatsApp</div>
+                    <div className="text-xs font-mono font-medium text-neutral-900 dark:text-neutral-100 truncate">
+                      {personalInfo.socialLinks.phone}
+                    </div>
+                  </div>
+                </a>
+
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <a
+                    href={personalInfo.socialLinks.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-lg border border-neutral-200 bg-white px-2 py-1.5 text-[10px] font-mono text-emerald-600 transition hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-emerald-400"
+                  >
+                    WhatsApp
+                  </a>
+                  <button
+                    onClick={handleCopyPhone}
+                    className="rounded-lg border border-neutral-200 bg-white p-2 text-neutral-600 transition hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
+                    title="Copy phone number"
+                  >
+                    {copiedPhone ? (
+                      <Check className="h-4 w-4 text-emerald-500" />
+                    ) : (
+                      <Copy className="h-4 w-4" />
+                    )}
+                  </button>
+                </div>
               </div>
 
               {/* Location Card */}

@@ -20,8 +20,9 @@ export function JsonLd() {
         url: 'https://sakifistiak.com',
         image: 'https://sakifistiak.com/images/sakif-istiak.jpg',
         description:
-          'Sakif Istiak (Sakif Istiak Fahim) is a Laravel Developer, Technology Enthusiast, and Product Builder from Rajshahi, Bangladesh. Intern at Ecare Solution and BBA student at Varendra University.',
+          'Sakif Istiak (Sakif Istiak Fahim) is a Laravel Developer, Technology Enthusiast, and Product Builder from Rajshahi, Bangladesh. Former Development Team Lead at Ecare Solution and BBA student at Varendra University.',
         jobTitle: 'Laravel Developer & Product Builder',
+        telephone: '+8801727164101',
         worksFor: {
           '@type': 'Organization',
           name: 'Ecare Solution',
@@ -38,8 +39,8 @@ export function JsonLd() {
         },
         sameAs: [
           'https://github.com/sakifistiak',
-          'https://linkedin.com/in/sakifistiak',
-          'https://facebook.com/sakifistiak',
+          'https://www.linkedin.com/in/sakifistiak',
+          'https://www.facebook.com/sakifistiak1/',
         ],
         knowsAbout: [
           'Laravel Development',

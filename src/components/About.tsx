@@ -89,17 +89,17 @@ export function About() {
                       Known as Sakif Istiak • সাকিফ ইশতিয়াক
                     </p>
                     <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
-                      Rajshahi, Bangladesh • Ecare Solution • Varendra University
+                      Rajshahi, Bangladesh • Ex-Team Lead @ Ecare Solution • Varendra University
                     </p>
                   </div>
                 </div>
 
                 <div className="space-y-4 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
                   <p>
-                    My journey into technology began with an appetite to understand how the internet actually functions under the hood &mdash; starting from configuring Linux VPS environments, web hosting control panels, and DNS routing, to architecting backend applications that drive daily commercial workflows.
+                    My journey into technology began with an appetite to understand how the internet actually functions under the hood &mdash; starting from frontline technical web hosting support at Hostnin, to configuring Linux VPS environments, web hosting control panels, and DNS routing, to architecting backend applications that drive daily commercial workflows.
                   </p>
                   <p>
-                    As an early-career developer currently working as a <strong className="text-neutral-900 dark:text-neutral-100">Laravel Developer Intern at Ecare Solution</strong> in Rajshahi, I spend my days building business software, working with relational MySQL schemas, and handling hosting and server infrastructure.
+                    I previously served as the <strong className="text-neutral-900 dark:text-neutral-100">Development Team Lead at Ecare Solution</strong> in Rajshahi, leading software engineering workflows, building production web applications with Laravel and MySQL, and managing server infrastructure before concluding my tenure in January 2027.
                   </p>
                   <p>
                     At the same time, pursuing my <strong className="text-neutral-900 dark:text-neutral-100">Bachelor of Business Administration (BBA) at Varendra University</strong> gives me a distinct vantage point: I speak both the language of developers (APIs, transactions, database normalization, systemd services) and the language of business owners (cash flows, inventory turnover, operational efficiency, and customer experience).

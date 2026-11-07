@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: '%s | Sakif Istiak',
   },
   description:
-    'Official portfolio of Sakif Istiak (Sakif Istiak Fahim) — Laravel Developer Intern at Ecare Solution and BBA student at Varendra University in Rajshahi, Bangladesh. Building digital products, SaaS backends, and practical business software.',
+    'Official portfolio of Sakif Istiak (Sakif Istiak Fahim) — Former Development Team Lead at Ecare Solution and BBA student at Varendra University in Rajshahi, Bangladesh. Building digital products, SaaS backends, and practical business software.',
   keywords: [
     'Sakif Istiak',
     'Sakif Istiak Fahim',
