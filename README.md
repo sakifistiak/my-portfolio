@@ -28,7 +28,7 @@ Built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and **
     - **Sakiffo Task Reminder**: Decoupled React + Laravel RESTful API
     - **Digital Khata**: Laravel digital accounting & ledger bookkeeping
     - **VU Resource**: Educational resource hub for university students
-    - **Xlorin / Ecare Projects**: Enterprise hosting, Linux VPS & CloudLinux operations
+    - **Ecare Projects**: Enterprise server administration, Linux VPS & production operations
 - **Pragmatic Tech Stack Showcase**: Categorized by responsibility (Backend, Frontend, Database, Infrastructure & DevOps, Tools & Platforms) with daily working status.
 - **Interactive Contact & Collaboration**:
   - Contact form with client-side feedback and celebratory confetti

@@ -86,7 +86,7 @@ export function FeaturedProjects() {
         return <Briefcase className="h-5 w-5 text-purple-400" />;
       case 'vu-resource':
         return <BookOpen className="h-5 w-5 text-indigo-400" />;
-      case 'xlorin-ecare':
+      case 'ecare-infra':
         return <Server className="h-5 w-5 text-emerald-400" />;
       default:
         return <FileCode className="h-5 w-5 text-blue-400" />;
