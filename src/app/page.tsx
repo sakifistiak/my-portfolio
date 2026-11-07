@@ -1,9 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
-import { ThemeProvider } from '@/components/ThemeProvider';
-import { Preloader } from '@/components/Preloader';
-import { Navbar } from '@/components/Navbar';
+import React from 'react';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { WhatIDo } from '@/components/WhatIDo';
@@ -12,56 +9,33 @@ import { FeaturedProjects } from '@/components/FeaturedProjects';
 import { GitHubActivitySection } from '@/components/GitHubActivitySection';
 import { ExperienceTimeline } from '@/components/ExperienceTimeline';
 import { ContactSection } from '@/components/ContactSection';
-import { Footer } from '@/components/Footer';
-import { CommandPalette } from '@/components/CommandPalette';
 
 export default function Home() {
-  const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
-
   return (
-    <ThemeProvider>
-      {/* Sleek Minimalist Preloader */}
-      <Preloader />
+    <main className="relative z-10 flex flex-col">
+      {/* Expanded Grand Hero Section */}
+      <Hero />
 
-      <div className="relative min-h-screen bg-[#fafafa] text-neutral-900 transition-colors duration-300 dark:bg-[#090a0f] dark:text-neutral-100 selection:bg-blue-500/20 selection:text-blue-500">
-        {/* Command Palette Modal */}
-        <CommandPalette
-          isOpen={commandPaletteOpen}
-          onClose={() => setCommandPaletteOpen(false)}
-        />
+      {/* About Me & Identity */}
+      <About />
 
-        {/* Global Navigation Header */}
-        <Navbar onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
+      {/* What I Do - 5 Architectural Pillars */}
+      <WhatIDo />
 
-        <main className="relative z-10 flex flex-col">
-          {/* Hero with interactive terminal */}
-          <Hero />
+      {/* Curated Tech Stack & Systems */}
+      <TechStack />
 
-          {/* About Me & Story */}
-          <About />
+      {/* Featured Projects Showcase with Architecture Modals */}
+      <FeaturedProjects />
 
-          {/* What I Do - 5 Pillars */}
-          <WhatIDo />
+      {/* 52-Week GitHub Contribution Matrix & Developer Activity */}
+      <GitHubActivitySection />
 
-          {/* Tech Stack & Systems */}
-          <TechStack />
+      {/* Career & Academic Timeline */}
+      <ExperienceTimeline />
 
-          {/* Projects Showcase & Architecture Modal */}
-          <FeaturedProjects />
-
-          {/* GitHub Activity & 52-Week Contribution Matrix */}
-          <GitHubActivitySection />
-
-          {/* Experience & Academic Timeline */}
-          <ExperienceTimeline />
-
-          {/* Contact Section */}
-          <ContactSection />
-        </main>
-
-        {/* Footer */}
-        <Footer />
-      </div>
-    </ThemeProvider>
+      {/* Direct Contact & Collaboration Hub */}
+      <ContactSection />
+    </main>
   );
 }

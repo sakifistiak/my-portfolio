@@ -2,14 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   ArrowUpRight,
   MapPin,
   Clock,
   ChevronRight,
+  Briefcase,
+  Server,
+  Layers,
 } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './Icons';
+import { GithubIcon, LinkedinIcon, FacebookIcon } from './Icons';
 import { personalInfo } from '@/data/portfolio-data';
 import { TerminalIntro } from './TerminalIntro';
 
@@ -36,19 +40,19 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+    <section className="relative min-h-[85vh] flex flex-col justify-center overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28">
       {/* Background ambient lighting and subtle grid */}
       <div className="pointer-events-none absolute inset-0 bg-grid-pattern opacity-40 dark:opacity-20" />
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[130px] dark:bg-blue-500/15" />
-      <div className="pointer-events-none absolute top-40 right-10 h-[300px] w-[400px] rounded-full bg-emerald-500/10 blur-[120px] dark:bg-emerald-500/10" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[140px] dark:bg-blue-500/15" />
+      <div className="pointer-events-none absolute top-1/3 right-4 h-[400px] w-[500px] rounded-full bg-emerald-500/10 blur-[130px] dark:bg-emerald-500/10" />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Top Badges: Available status & Live timezone */}
+      <div className="relative mx-auto max-w-6xl w-full px-4 sm:px-6">
+        {/* Top Floating Bar: Available status & Live timezone */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-wrap items-center gap-2.5 sm:gap-3"
+          className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200/60 pb-5 dark:border-neutral-800/60"
         >
           {/* Availability pill */}
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400 backdrop-blur-md">
@@ -56,7 +60,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
             </span>
-            <span>Available for Collaboration &amp; Projects</span>
+            <span>Available for Collaboration &amp; Software Roles</span>
           </div>
 
           {/* Location & Live Time */}
@@ -74,7 +78,7 @@ export function Hero() {
         </motion.div>
 
         {/* Hero Main Content Grid */}
-        <div className="mt-8 grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
+        <div className="mt-10 grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           {/* Left Column: Heading, Introduction, CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -82,17 +86,17 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-7"
           >
-            {/* Profile Avatar & Author Badge */}
-            <div className="flex items-center gap-3.5 mb-5">
+            {/* Grand Author Badge & Photo */}
+            <div className="flex items-center gap-4 mb-6">
               <div className="relative group shrink-0">
-                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-500 to-emerald-400 opacity-50 blur-xs group-hover:opacity-100 transition duration-300" />
+                <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-400 opacity-50 blur-sm group-hover:opacity-100 transition duration-300" />
                 <Image
                   src="/images/sakif-istiak.jpg"
                   alt="Sakif Istiak (Sakif Istiak Fahim) — Laravel Developer & Product Builder"
-                  width={68}
-                  height={68}
+                  width={92}
+                  height={92}
                   priority
-                  className="relative h-[68px] w-[68px] rounded-2xl object-cover ring-2 ring-neutral-900 shadow-xl"
+                  className="relative h-[92px] w-[92px] rounded-2xl object-cover ring-2 ring-neutral-900 shadow-2xl"
                 />
                 <span className="absolute -bottom-1 -right-1 flex h-4 w-4">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -102,70 +106,76 @@ export function Hero() {
 
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                  <h2 className="text-sm font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
                     Sakif Istiak
-                  </span>
+                  </h2>
                   <span className="text-neutral-400 text-xs">•</span>
                   <span className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">
                     সাকিফ ইশতিয়াক
                   </span>
                 </div>
-                <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-0.5">
-                  Former Development Team Lead @ Ecare Solution
+                <div className="text-xs sm:text-sm font-medium text-neutral-800 dark:text-neutral-200 mt-1">
+                  Ex-Development Team Lead @ Ecare Solution
+                </div>
+                <div className="text-xs text-neutral-500 dark:text-neutral-400">
+                  BBA Student @ Varendra University
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 text-xs font-mono font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">
-              <span>Laravel Developer</span>
+            <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">
+              <span>Laravel Architecture</span>
+              <span>•</span>
+              <span>Linux VPS Sysadmin</span>
               <span>•</span>
               <span>Product Builder</span>
-              <span>•</span>
-              <span>BBA Student</span>
             </div>
 
-            <h1 className="text-4xl font-bold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl dark:text-white leading-[1.08]">
-              {personalInfo.name}
+            <h1 className="text-4xl font-extrabold tracking-tight text-neutral-950 sm:text-6xl lg:text-7xl dark:text-white leading-[1.05]">
+              Sakif Istiak Fahim
             </h1>
 
-            <p className="mt-4 text-xl sm:text-2xl font-medium tracking-tight text-neutral-800 dark:text-neutral-200">
+            <p className="mt-5 text-xl sm:text-2xl font-semibold tracking-tight text-neutral-800 dark:text-neutral-200">
               &ldquo;{personalInfo.headline}&rdquo;
             </p>
 
-            <p className="mt-4 text-base text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl">
-              Early-career developer and technology entrepreneur blending robust PHP &amp; Laravel backend development, MySQL databases, and Linux server management with business strategy. Former Development Team Lead at Ecare Solution, experienced with technical hosting at Hostnin, and focused on building practical digital products.
+            <p className="mt-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl">
+              Technology entrepreneur and backend software developer with leadership experience as Development Team Lead at Ecare Solution and technical support expertise at Hostnin. Bridging robust Laravel backends, relational MySQL databases, and Linux server management with business strategy.
             </p>
 
             {/* Quick credentials pill row */}
-            <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-neutral-600 dark:text-neutral-400">
-              <span className="rounded-md border border-neutral-200 bg-neutral-100/80 px-2.5 py-1 dark:border-neutral-800 dark:bg-neutral-800/60">
+            <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-neutral-700 dark:text-neutral-300">
+              <span className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 bg-neutral-100/90 px-3 py-1.5 dark:border-neutral-800 dark:bg-neutral-850">
+                <Briefcase className="h-3.5 w-3.5 text-blue-500" />
                 Ex-Team Lead @ Ecare Solution
               </span>
-              <span className="rounded-md border border-neutral-200 bg-neutral-100/80 px-2.5 py-1 dark:border-neutral-800 dark:bg-neutral-800/60">
-                Support Exp @ Hostnin
+              <span className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 bg-neutral-100/90 px-3 py-1.5 dark:border-neutral-800 dark:bg-neutral-850">
+                <Server className="h-3.5 w-3.5 text-emerald-500" />
+                6 Mos Support @ Hostnin
               </span>
-              <span className="rounded-md border border-neutral-200 bg-neutral-100/80 px-2.5 py-1 dark:border-neutral-800 dark:bg-neutral-800/60">
+              <span className="inline-flex items-center gap-1.5 rounded-lg border border-neutral-200 bg-neutral-100/90 px-3 py-1.5 dark:border-neutral-800 dark:bg-neutral-850">
+                <Layers className="h-3.5 w-3.5 text-purple-500" />
                 BBA @ Varendra University
               </span>
             </div>
 
-            {/* CTA Action Buttons */}
+            {/* CTA Action Buttons & Multi-Page Jumps */}
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a
-                href="#projects"
+              <Link
+                href="/projects"
                 className="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-neutral-800 dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-100"
               >
                 <span>View Projects</span>
                 <ChevronRight className="h-4 w-4" />
-              </a>
+              </Link>
 
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white/80 px-5 py-3 text-sm font-semibold text-neutral-800 backdrop-blur-md transition hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-200 dark:hover:bg-neutral-800"
               >
                 <span>Let&apos;s Connect</span>
                 <ArrowUpRight className="h-4 w-4" />
-              </a>
+              </Link>
 
               {/* Social links */}
               <div className="ml-1 flex items-center gap-2">
@@ -190,6 +200,17 @@ export function Hero() {
                 >
                   <LinkedinIcon className="h-5 w-5" />
                 </a>
+
+                <a
+                  href={personalInfo.socialLinks.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-200 bg-white/80 text-neutral-700 transition hover:bg-neutral-100 hover:text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
+                  aria-label="Sakif Istiak Facebook Profile"
+                  title="Sakif Istiak on Facebook"
+                >
+                  <FacebookIcon className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </motion.div>
@@ -205,6 +226,50 @@ export function Hero() {
             <TerminalIntro />
           </motion.div>
         </div>
+
+        {/* Bottom Highlights Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 border-t border-neutral-200/60 pt-8 dark:border-neutral-800/60"
+        >
+          <div className="rounded-xl border border-neutral-200/60 bg-white/60 p-4 backdrop-blur-md dark:border-neutral-800/60 dark:bg-neutral-900/50">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
+              Primary Framework
+            </div>
+            <div className="mt-1 text-base font-bold text-neutral-900 dark:text-neutral-100">
+              Laravel &amp; PHP 8.x
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-neutral-200/60 bg-white/60 p-4 backdrop-blur-md dark:border-neutral-800/60 dark:bg-neutral-900/50">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
+              Database Core
+            </div>
+            <div className="mt-1 text-base font-bold text-neutral-900 dark:text-neutral-100">
+              Relational MySQL
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-neutral-200/60 bg-white/60 p-4 backdrop-blur-md dark:border-neutral-800/60 dark:bg-neutral-900/50">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
+              Infrastructure
+            </div>
+            <div className="mt-1 text-base font-bold text-neutral-900 dark:text-neutral-100">
+              Linux VPS &amp; cPanel
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-neutral-200/60 bg-white/60 p-4 backdrop-blur-md dark:border-neutral-800/60 dark:bg-neutral-900/50">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
+              Business Perspective
+            </div>
+            <div className="mt-1 text-base font-bold text-neutral-900 dark:text-neutral-100">
+              BBA Management
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

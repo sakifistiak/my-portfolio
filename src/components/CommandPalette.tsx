@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search,
@@ -9,7 +10,6 @@ import {
   Moon,
   Copy,
   FolderGit2,
-  Terminal,
   User,
   Briefcase,
   GitCommit,
@@ -25,6 +25,7 @@ interface CommandPaletteProps {
 }
 
 export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
+  const router = useRouter();
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -51,32 +52,22 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   const items = [
     // Navigation
     {
+      id: 'nav-home',
+      title: 'Home Page',
+      category: 'Navigation',
+      icon: User,
+      action: () => {
+        router.push('/');
+        onClose();
+      },
+    },
+    {
       id: 'nav-about',
       title: 'About Sakif Istiak Fahim',
       category: 'Navigation',
       icon: User,
       action: () => {
-        window.location.hash = '#about';
-        onClose();
-      },
-    },
-    {
-      id: 'nav-what-i-do',
-      title: 'What I Do & Capabilities',
-      category: 'Navigation',
-      icon: Briefcase,
-      action: () => {
-        window.location.hash = '#what-i-do';
-        onClose();
-      },
-    },
-    {
-      id: 'nav-stack',
-      title: 'Tech Stack & Systems',
-      category: 'Navigation',
-      icon: Terminal,
-      action: () => {
-        window.location.hash = '#stack';
+        router.push('/about');
         onClose();
       },
     },
@@ -86,17 +77,27 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       category: 'Navigation',
       icon: FolderGit2,
       action: () => {
-        window.location.hash = '#projects';
+        router.push('/projects');
         onClose();
       },
     },
     {
       id: 'nav-activity',
-      title: 'GitHub Heatmap & Activity',
+      title: 'GitHub Heatmap & Developer Activity',
       category: 'Navigation',
       icon: GitCommit,
       action: () => {
-        window.location.hash = '#activity';
+        router.push('/activity');
+        onClose();
+      },
+    },
+    {
+      id: 'nav-experience',
+      title: 'Experience Timeline & Education',
+      category: 'Navigation',
+      icon: Briefcase,
+      action: () => {
+        router.push('/experience');
         onClose();
       },
     },
@@ -106,7 +107,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       category: 'Navigation',
       icon: Mail,
       action: () => {
-        window.location.hash = '#contact';
+        router.push('/contact');
         onClose();
       },
     },
@@ -144,7 +145,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       category: 'Projects',
       icon: FolderGit2,
       action: () => {
-        window.location.hash = '#projects';
+        router.push('/projects');
         onClose();
       },
     })),
