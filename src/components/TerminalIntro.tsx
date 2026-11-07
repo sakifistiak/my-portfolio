@@ -91,12 +91,12 @@ export function TerminalIntro() {
         result = (
           <div className="space-y-1.5 text-xs text-neutral-300">
             <p className="text-sky-400 font-semibold">Featured Projects:</p>
-            <p><span className="text-amber-400">1. Khan Gadget POS:</span> Multi-branch retail ERP with strict IMEI/Serial tracking</p>
+            <p><span className="text-amber-400">1. PingoLine:</span> Communication technology product brand & platform</p>
             <p><span className="text-amber-400">2. Siusho:</span> WhatsApp & Telegram personal assistant bot</p>
-            <p><span className="text-amber-400">3. PingoLine:</span> Communication technology product brand</p>
-            <p><span className="text-amber-400">4. ezyPBX:</span> IP telephony & cloud PBX service architecture</p>
+            <p><span className="text-amber-400">3. ezyPBX:</span> IP telephony & cloud PBX service architecture</p>
+            <p><span className="text-amber-400">4. Digital Khata:</span> Laravel digital accounting & ledger bookkeeping</p>
             <p><span className="text-amber-400">5. Sakiffo Task Reminder:</span> React + Laravel + MySQL task system</p>
-            <p><span className="text-amber-400">6. Digital Khata:</span> Laravel digital accounting & ledger bookkeeping</p>
+            <p><span className="text-amber-400">6. VU Resource:</span> University student academic resource hub concept</p>
             <p className="text-neutral-400 italic">Scroll down to the Projects section to inspect architectural specs.</p>
           </div>
         );

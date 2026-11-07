@@ -9,8 +9,8 @@ export function GitHubActivitySection() {
   const recentActivities = [
     {
       type: 'commit',
-      repo: 'sakifistiak/khan-gadget-pos',
-      message: 'feat: add inter-branch stock requisition approval protocol',
+      repo: 'sakifistiak/sakiffo-task-reminder',
+      message: 'feat: add token-based api authentication & task recurrence logic',
       time: 'Yesterday',
       branch: 'main',
     },

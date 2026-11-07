@@ -9,7 +9,6 @@ import {
   Eye,
   Server,
   Bot,
-  Store,
   BookOpen,
   PhoneCall,
   Briefcase,
@@ -27,10 +26,9 @@ export function FeaturedProjects() {
 
   const categories: { label: string; value: ProjectCategory }[] = [
     { label: 'All Projects', value: 'all' },
-    { label: 'ERP & Commercial', value: 'erp' },
     { label: 'SaaS & Brands', value: 'saas' },
     { label: 'Bots & Automation', value: 'bot' },
-    { label: 'Infrastructure & Ops', value: 'infrastructure' },
+    { label: 'Infrastructure & PBX', value: 'infrastructure' },
     { label: 'Web Applications', value: 'web' },
   ];
 
@@ -74,8 +72,6 @@ export function FeaturedProjects() {
 
   const getProjectIcon = (id: string) => {
     switch (id) {
-      case 'khan-gadget-pos':
-        return <Store className="h-5 w-5 text-emerald-400" />;
       case 'pingoline':
         return <PhoneCall className="h-5 w-5 text-blue-400" />;
       case 'siusho':
@@ -86,8 +82,6 @@ export function FeaturedProjects() {
         return <Briefcase className="h-5 w-5 text-purple-400" />;
       case 'vu-resource':
         return <BookOpen className="h-5 w-5 text-indigo-400" />;
-      case 'ecare-infra':
-        return <Server className="h-5 w-5 text-emerald-400" />;
       default:
         return <FileCode className="h-5 w-5 text-blue-400" />;
     }

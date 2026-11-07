@@ -223,36 +223,6 @@ export const techStack: TechItem[] = [
 
 export const projects: Project[] = [
   {
-    id: 'khan-gadget-pos',
-    title: 'Khan Gadget POS',
-    tagline: 'Multi-Branch Gadget Retail POS & Inventory ERP',
-    description: 'A comprehensive Point of Sale and ERP system designed for a multi-branch gadget and mobile phone business with distinct inventory controls and serial tracking.',
-    longDescription: `Khan Gadget POS addresses the intricate operational realities of multi-branch electronics retailing. Built with Laravel and MySQL, it features strict serial number and IMEI tracking from initial purchase order to customer checkout, preventing duplicate inventory entries. It provides inter-branch transfer protocols with receipt verification, supplier credit management, and branch-wise profit analysis.`,
-    category: 'erp',
-    tags: ['Laravel', 'MySQL', 'Inventory ERP', 'POS', 'Multi-Branch'],
-    technologies: ['Laravel', 'MySQL', 'Tailwind CSS', 'Alpine.js', 'Barcode/IMEI Engine'],
-    status: 'Production / Internal',
-    statusColor: 'emerald',
-    featured: true,
-    architectureHighlights: [
-      'Individual IMEI & Serial number lifecycle tracing from vendor receiving to customer invoice',
-      'Inter-branch stock transfer requisition, dispatch, and physical arrival acknowledgment workflow',
-      'Role-based permissions dividing cashiers, branch managers, and administrative headquarters',
-      'Daily branch closing register with reconciliation for cash, mobile banking, and card payments',
-    ],
-    keyFeatures: [
-      'Multi-branch inventory synchronization',
-      'IMEI/Serial-based warranty & return tracing',
-      'Supplier purchase ledger and partial payments',
-      'Custom thermal receipt printing generation',
-    ],
-    metrics: [
-      { label: 'Tracking Mode', value: 'Serial & IMEI' },
-      { label: 'Architecture', value: 'Multi-Branch' },
-      { label: 'Database', value: 'Normalized MySQL' },
-    ],
-  },
-  {
     id: 'pingoline',
     title: 'PingoLine',
     tagline: 'Communication-Focused Technology Brand & Platform',
@@ -420,34 +390,6 @@ export const projects: Project[] = [
       { label: 'Type', value: 'Academic Depository' },
     ],
   },
-  {
-    id: 'ecare-infra',
-    title: 'Ecare Systems & Server Operations',
-    tagline: 'Enterprise Server Administration & Production Operations',
-    description: 'Hands-on operational experience with production Linux VPS setups, cPanel/WHM server provisioning, and client business software maintenance.',
-    longDescription: `Through hands-on engineering work at Ecare Solution, this experience encompasses practical server systems administration. Tasks include configuring web server virtual hosts, managing multi-tenant resource allocations, troubleshooting PHP runtime dependencies, configuring automated backup routines, and maintaining uptime across client web applications.`,
-    category: 'infrastructure',
-    tags: ['cPanel / WHM', 'CloudLinux', 'Linux VPS', 'Server Ops', 'Ecare Solution'],
-    technologies: ['Linux VPS', 'cPanel / WHM', 'CloudLinux LVE', 'Apache / Nginx', 'MySQL Admin', 'DNS'],
-    status: 'Infrastructure Operations',
-    statusColor: 'emerald',
-    featured: true,
-    architectureHighlights: [
-      'cPanel / WHM multi-account configuration, resource throttling, and CageFS tenant safety',
-      'DNS records management (A, CNAME, MX, SPF, DKIM, DMARC) for dependable deliverability',
-      'Routine disaster recovery configuration with local and remote snapshot backups',
-    ],
-    keyFeatures: [
-      'Production server health monitoring and load balancing awareness',
-      'PHP runtime version selector configuration for legacy and modern codebases',
-      'MySQL database tuning and slow query log inspection',
-      'Automated Let\'s Encrypt SSL lifecycle maintenance',
-    ],
-    metrics: [
-      { label: 'Environment', value: 'Production Servers' },
-      { label: 'OS', value: 'CloudLinux & Ubuntu' },
-    ],
-  },
 ];
 
 export const experienceTimeline: ExperienceItem[] = [
@@ -478,7 +420,7 @@ export const experienceTimeline: ExperienceItem[] = [
     skills: ['Business Analysis', 'Operations Management', 'Commercial Law Basics', 'Financial Acumen'],
     highlights: [
       'Unique interdisciplinary positioning combining formal business education with software engineering practice',
-      'Applying business process concepts directly to ERP and inventory software development (e.g. Khan Gadget POS)',
+      'Applying business process concepts directly to commercial software workflows, ledger accounting, and digital products',
       'Analyzing market needs, cost structures, and product feasibility for digital SaaS ventures',
     ],
   },

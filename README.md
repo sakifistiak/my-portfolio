@@ -20,15 +20,13 @@ Built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and **
 - **Raycast / Linear Command Palette (`⌘K` / `Ctrl+K`)**:
   - Global hotkey to jump to any section, trigger theme toggles, inspect projects, or copy contact credentials
 - **Architectural Project Showcase**:
-  - Deep-dive modals inspecting architectural highlights for all 8 featured projects:
-    - **Khan Gadget POS**: Multi-branch gadget retail POS & inventory ERP with serial/IMEI tracking
+  - Deep-dive modals inspecting architectural highlights for featured projects:
     - **PingoLine**: Communication-focused technology brand & portal
     - **Siusho**: WhatsApp & Telegram personal productivity bot
     - **ezyPBX**: IP telephony & cloud PBX service architecture
-    - **Sakiffo Task Reminder**: Decoupled React + Laravel RESTful API
     - **Digital Khata**: Laravel digital accounting & ledger bookkeeping
+    - **Sakiffo Task Reminder**: Decoupled React + Laravel RESTful API
     - **VU Resource**: Educational resource hub for university students
-    - **Ecare Projects**: Enterprise server administration, Linux VPS & production operations
 - **Pragmatic Tech Stack Showcase**: Categorized by responsibility (Backend, Frontend, Database, Infrastructure & DevOps, Tools & Platforms) with daily working status.
 - **Interactive Contact & Collaboration**:
   - Contact form with client-side feedback and celebratory confetti
