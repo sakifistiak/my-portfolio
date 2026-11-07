@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   ArrowUpRight,
@@ -81,6 +82,40 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-7"
           >
+            {/* Profile Avatar & Author Badge */}
+            <div className="flex items-center gap-3.5 mb-5">
+              <div className="relative group shrink-0">
+                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-500 to-emerald-400 opacity-50 blur-xs group-hover:opacity-100 transition duration-300" />
+                <Image
+                  src="/images/sakif-istiak.jpg"
+                  alt="Sakif Istiak (Sakif Istiak Fahim) — Laravel Developer & Product Builder"
+                  width={68}
+                  height={68}
+                  priority
+                  className="relative h-[68px] w-[68px] rounded-2xl object-cover ring-2 ring-neutral-900 shadow-xl"
+                />
+                <span className="absolute -bottom-1 -right-1 flex h-4 w-4">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-4 w-4 rounded-full border-2 border-neutral-950 bg-emerald-500" />
+                </span>
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                    Sakif Istiak
+                  </span>
+                  <span className="text-neutral-400 text-xs">•</span>
+                  <span className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">
+                    সাকিফ ইশতিয়াক
+                  </span>
+                </div>
+                <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-0.5">
+                  Laravel Developer Intern @ Ecare Solution
+                </div>
+              </div>
+            </div>
+
             <div className="flex items-center gap-2 text-xs font-mono font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">
               <span>Laravel Developer</span>
               <span>•</span>
@@ -139,7 +174,8 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-200 bg-white/80 text-neutral-700 transition hover:bg-neutral-100 hover:text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
-                  aria-label="GitHub Profile"
+                  aria-label="Sakif Istiak GitHub Profile"
+                  title="Sakif Istiak on GitHub"
                 >
                   <GithubIcon className="h-5 w-5" />
                 </a>
@@ -149,7 +185,8 @@ export function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-200 bg-white/80 text-neutral-700 transition hover:bg-neutral-100 hover:text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
-                  aria-label="LinkedIn Profile"
+                  aria-label="Sakif Istiak LinkedIn Profile"
+                  title="Sakif Istiak on LinkedIn"
                 >
                   <LinkedinIcon className="h-5 w-5" />
                 </a>

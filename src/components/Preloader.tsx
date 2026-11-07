@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface PreloaderProps {
@@ -65,17 +66,22 @@ export function Preloader({ onComplete }: PreloaderProps) {
           <div className="pointer-events-none absolute h-[250px] w-[350px] rounded-full bg-emerald-500/10 blur-[100px]" />
 
           <div className="relative z-10 flex w-full max-w-sm flex-col items-center px-6">
-            {/* Center Monogram / Logo */}
+            {/* Center Portrait / Avatar */}
             <motion.div
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.4 }}
               className="relative mb-6"
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-neutral-700/80 bg-neutral-900/90 shadow-2xl backdrop-blur-xl">
-                <span className="font-mono text-xl font-bold tracking-tight text-white">
-                  SIF
-                </span>
+              <div className="relative h-18 w-18 overflow-hidden rounded-2xl border border-neutral-700/80 bg-neutral-900/90 shadow-2xl backdrop-blur-xl ring-2 ring-emerald-500/20">
+                <Image
+                  src="/images/sakif-istiak.jpg"
+                  alt="Sakif Istiak (Sakif Istiak Fahim)"
+                  width={72}
+                  height={72}
+                  priority
+                  className="h-full w-full object-cover"
+                />
               </div>
               <span className="absolute -bottom-1 -right-1 flex h-3.5 w-3.5 items-center justify-center">
                 <span className="absolute h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />

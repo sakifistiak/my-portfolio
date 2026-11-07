@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import {
   Server,
   Code2,
@@ -64,19 +65,49 @@ export function About() {
           {/* Main Story Card */}
           <div className="lg:col-span-7">
             <SpotlightCard className="h-full flex flex-col justify-between">
-              <div className="space-y-4 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                <p>
-                  My journey into technology began with an appetite to understand how the internet actually functions under the hood &mdash; starting from configuring Linux VPS environments, web hosting control panels, and DNS routing, to architecting backend applications that drive daily commercial workflows.
-                </p>
-                <p>
-                  As an early-career developer currently working as a <strong className="text-neutral-900 dark:text-neutral-100">Laravel Developer Intern at Ecare Solution</strong> in Rajshahi, I spend my days building business software, working with relational MySQL schemas, and handling hosting and server infrastructure.
-                </p>
-                <p>
-                  At the same time, pursuing my <strong className="text-neutral-900 dark:text-neutral-100">Bachelor of Business Administration (BBA) at Varendra University</strong> gives me a distinct vantage point: I speak both the language of developers (APIs, transactions, database normalization, systemd services) and the language of business owners (cash flows, inventory turnover, operational efficiency, and customer experience).
-                </p>
-                <p className="pt-2 text-xs font-mono text-neutral-500 dark:text-neutral-500 border-t border-neutral-200/60 dark:border-neutral-800/60">
-                  &ldquo;Authenticity note: I do not claim decades of senior leadership. I bring relentless curiosity, foundational discipline, clean engineering habits, and a builder&apos;s drive to solve practical problems.&rdquo;
-                </p>
+              <div>
+                {/* Author Card Header */}
+                <div className="flex items-center gap-4 mb-6 pb-6 border-b border-neutral-200/60 dark:border-neutral-800/60">
+                  <div className="relative shrink-0">
+                    <Image
+                      src="/images/sakif-istiak.jpg"
+                      alt="Sakif Istiak (Sakif Istiak Fahim) — Portrait"
+                      width={64}
+                      height={64}
+                      className="h-16 w-16 rounded-2xl object-cover ring-2 ring-neutral-200 dark:ring-neutral-700 shadow-md"
+                    />
+                    <span className="absolute -bottom-0.5 -right-0.5 flex h-3.5 w-3.5">
+                      <span className="relative inline-flex h-3.5 w-3.5 rounded-full border-2 border-white dark:border-neutral-900 bg-emerald-500" />
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base font-bold text-neutral-900 dark:text-neutral-100">
+                      Sakif Istiak Fahim
+                    </h3>
+                    <p className="text-xs text-blue-600 dark:text-blue-400 font-mono font-medium">
+                      Known as Sakif Istiak • সাকিফ ইশতিয়াক
+                    </p>
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
+                      Rajshahi, Bangladesh • Ecare Solution • Varendra University
+                    </p>
+                  </div>
+                </div>
+
+                <div className="space-y-4 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  <p>
+                    My journey into technology began with an appetite to understand how the internet actually functions under the hood &mdash; starting from configuring Linux VPS environments, web hosting control panels, and DNS routing, to architecting backend applications that drive daily commercial workflows.
+                  </p>
+                  <p>
+                    As an early-career developer currently working as a <strong className="text-neutral-900 dark:text-neutral-100">Laravel Developer Intern at Ecare Solution</strong> in Rajshahi, I spend my days building business software, working with relational MySQL schemas, and handling hosting and server infrastructure.
+                  </p>
+                  <p>
+                    At the same time, pursuing my <strong className="text-neutral-900 dark:text-neutral-100">Bachelor of Business Administration (BBA) at Varendra University</strong> gives me a distinct vantage point: I speak both the language of developers (APIs, transactions, database normalization, systemd services) and the language of business owners (cash flows, inventory turnover, operational efficiency, and customer experience).
+                  </p>
+                  <p className="pt-2 text-xs font-mono text-neutral-500 dark:text-neutral-500 border-t border-neutral-200/60 dark:border-neutral-800/60">
+                    &ldquo;Authenticity note: I do not claim decades of senior leadership. I bring relentless curiosity, foundational discipline, clean engineering habits, and a builder&apos;s drive to solve practical problems.&rdquo;
+                  </p>
+                </div>
               </div>
 
               {/* Quick stats / highlight bar */}
