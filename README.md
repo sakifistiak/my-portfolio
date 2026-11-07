@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sakif Istiak Fahim — Personal Portfolio Website
 
-## Getting Started
+A modern, highly interactive personal portfolio website for **Sakif Istiak Fahim** — Laravel Developer, Technology Enthusiast, Entrepreneur, and Product Builder.
 
-First, run the development server:
+Built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 
+---
+
+## 🌟 Key Features
+
+- **Linear & Vercel-Inspired Aesthetic**: Dark-first design with a fluid light/dark mode toggle, refined typography, subtle glow borders, and mouse-following spotlight cards.
+- **GitHub Contribution Matrix (52 Weeks)**:
+  - 52 weeks of activity cells with 4 intensity levels
+  - Smooth hover tooltips displaying date and commit frequency
+  - Interactive **Contribution Snake** animation mode that plays across the contribution matrix
+  - Transparent data representation adhering to authentic developer activity
+- **Interactive Terminal Intro**:
+  - Interactive CLI supporting `whoami`, `skills`, `projects`, `contact`, `experience`, `clear`
+  - macOS/Linux style window with traffic light buttons and quick-action chips
+- **Raycast / Linear Command Palette (`⌘K` / `Ctrl+K`)**:
+  - Global hotkey to jump to any section, trigger theme toggles, inspect projects, or copy contact credentials
+- **Architectural Project Showcase**:
+  - Deep-dive modals inspecting architectural highlights for all 8 featured projects:
+    - **Khan Gadget POS**: Multi-branch gadget retail POS & inventory ERP with serial/IMEI tracking
+    - **PingoLine**: Communication-focused technology brand & portal
+    - **Siusho**: WhatsApp & Telegram personal productivity bot
+    - **ezyPBX**: IP telephony & cloud PBX service architecture
+    - **Sakiffo Task Reminder**: Decoupled React + Laravel RESTful API
+    - **Digital Khata**: Laravel digital accounting & ledger bookkeeping
+    - **VU Resource**: Educational resource hub for university students
+    - **Xlorin / Ecare Projects**: Enterprise hosting, Linux VPS & CloudLinux operations
+- **Pragmatic Tech Stack Showcase**: Categorized by responsibility (Backend, Frontend, Database, Infrastructure & DevOps, Tools & Platforms) with daily working status.
+- **Interactive Contact & Collaboration**:
+  - Contact form with client-side feedback and celebratory confetti
+  - One-click copy for primary email with live toast notification
+  - Real-time Rajshahi, Bangladesh local time clock (`Asia/Dhaka` GMT+6)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build for Production
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── src/
+│   ├── app/
+│   │   ├── globals.css         # Tailwind v4 theme variables, glassmorphism, grid patterns
+│   │   ├── layout.tsx          # SEO metadata, OpenGraph tags, Geist font configuration
+│   │   └── page.tsx            # Main layout orchestrator
+│   ├── components/
+│   │   ├── About.tsx           # Identity, philosophy & business-tech bridge
+│   │   ├── CommandPalette.tsx  # ⌘K Raycast-style instant search modal
+│   │   ├── ContactSection.tsx  # Interactive form, copy email, socials
+│   │   ├── ExperienceTimeline.tsx # Ecare Solution internship & Varendra University BBA
+│   │   ├── FeaturedProjects.tsx# Project cards with filter pills & deep-dive modal
+│   │   ├── Footer.tsx          # Minimal footer with back-to-top & copyright
+│   │   ├── GitHubActivitySection.tsx # Commit logs & activity wrappers
+│   │   ├── GitHubContributionGraph.tsx # 52-week heatmap with Snake mode
+│   │   ├── Hero.tsx            # Hero with live GMT+6 clock & profile intro
+│   │   ├── Icons.tsx           # Vector SVG brand icons
+│   │   ├── Navbar.tsx          # Floating header with ⌘K badge & theme switcher
+│   │   ├── SpotlightCard.tsx   # Mouse-following radial spotlight container
+│   │   ├── TechStack.tsx       # Categorized technologies with status badges
+│   │   ├── TerminalIntro.tsx   # Interactive terminal emulator
+│   │   ├── ThemeProvider.tsx   # Dark/light theme context provider
+│   │   └── WhatIDo.tsx         # 5 core pillars of work
+│   ├── data/
+│   │   └── portfolio-data.ts   # Central authentic data store
+│   └── types/
+│       └── index.ts            # TypeScript interfaces
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👤 Identity & Profile
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Name**: Sakif Istiak Fahim
+- **Location**: Rajshahi, Bangladesh
+- **Education**: BBA Student at Varendra University
+- **Role**: Laravel Developer Intern at Ecare Solution
