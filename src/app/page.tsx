@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import { Preloader } from '@/components/Preloader';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
@@ -19,6 +20,9 @@ export default function Home() {
 
   return (
     <ThemeProvider>
+      {/* Sleek Minimalist Preloader */}
+      <Preloader />
+
       <div className="relative min-h-screen bg-[#fafafa] text-neutral-900 transition-colors duration-300 dark:bg-[#090a0f] dark:text-neutral-100 selection:bg-blue-500/20 selection:text-blue-500">
         {/* Command Palette Modal */}
         <CommandPalette
