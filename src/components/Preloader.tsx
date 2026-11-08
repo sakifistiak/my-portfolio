@@ -31,7 +31,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
         const bounded = Math.min(100, next);
 
         if (bounded < 30) {
-          setLoadingText('Loading system modules: Laravel & MySQL...');
+          setLoadingText('Loading web technologies: PHP, JavaScript & databases...');
         } else if (bounded < 65) {
           setLoadingText('Connecting server daemons [Rajshahi: GMT+6]...');
         } else if (bounded < 90) {
@@ -100,7 +100,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
                 SAKIF ISTIAK FAHIM
               </h2>
               <p className="mt-1 font-mono text-[11px] text-neutral-500">
-                Laravel Developer &amp; Product Builder
+                Software Developer &amp; Product Builder
               </p>
             </motion.div>
 
