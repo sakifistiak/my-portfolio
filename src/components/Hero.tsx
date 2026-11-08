@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, MapPin, Clock, Terminal, Code2, Server, Layers, Github, Linkedin, Facebook, Instagram, AtSign, BookOpen, Rocket } from 'lucide-react';
+import { ArrowUpRight, MapPin, Clock, Terminal, Code2, Server, Layers, BriefcaseBusiness, Users, Camera, AtSign, BookOpen, Rocket } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio-data';
 
 const socials = [
-  { label: 'GitHub', href: personalInfo.socialLinks.github, Icon: Github },
-  { label: 'LinkedIn', href: personalInfo.socialLinks.linkedin, Icon: Linkedin },
-  { label: 'Facebook', href: personalInfo.socialLinks.facebook, Icon: Facebook },
-  { label: 'Instagram', href: personalInfo.socialLinks.instagram, Icon: Instagram },
+  { label: 'GitHub', href: personalInfo.socialLinks.github, Icon: Code2 },
+  { label: 'LinkedIn', href: personalInfo.socialLinks.linkedin, Icon: BriefcaseBusiness },
+  { label: 'Facebook', href: personalInfo.socialLinks.facebook, Icon: Users },
+  { label: 'Instagram', href: personalInfo.socialLinks.instagram, Icon: Camera },
   { label: 'X', href: personalInfo.socialLinks.x, Icon: AtSign },
   { label: 'Dev.to', href: personalInfo.socialLinks.devto, Icon: Code2 },
   { label: 'Medium', href: personalInfo.socialLinks.medium, Icon: BookOpen },
