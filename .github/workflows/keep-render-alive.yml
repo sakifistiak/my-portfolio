@@ -1,0 +1,23 @@
+name: Keep Render Portfolio Alive
+
+on:
+  schedule:
+    # Ping every 10 minutes to stay below Render's 15-minute idle window.
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Check portfolio
+        run: |
+          echo "Checking https://sakif.pro.bd"
+          curl --fail --silent --show-error --location \
+            --max-time 45 \
+            --retry 2 \
+            --retry-delay 5 \
+            --output /dev/null \
+            --write-out "HTTP %{http_code} | Total: %{time_total}s\n" \
+            https://sakif.pro.bd/
