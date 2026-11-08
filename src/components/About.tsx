@@ -21,11 +21,11 @@ export function About() {
         'Combining formal BBA business education with hands-on software development. I look beyond raw syntax to see how features impact revenue, margins, and operational bottlenecks.',
     },
     {
-      title: 'Production Laravel & Databases',
+      title: 'Multi-Stack Web Development',
       icon: Code2,
       color: 'text-rose-500',
       description:
-        'Building maintainable web applications using Laravel, clean database migrations, strict relational schemas in MySQL, and reliable background queuing.',
+        'Working across PHP applications, Laravel, WordPress and WooCommerce, and modern JavaScript-based web interfaces. Choosing tools based on the product, requirements, and maintainability.',
     },
     {
       title: 'Real-World Server Ops',
@@ -113,9 +113,9 @@ export function About() {
               {/* Quick stats / highlight bar */}
               <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3 border-t border-neutral-200/60 pt-6 dark:border-neutral-800/60">
                 <div className="rounded-xl bg-neutral-100/60 p-3 dark:bg-neutral-800/40">
-                  <div className="text-xs font-mono text-neutral-500">Core Stack</div>
+                  <div className="text-xs font-mono text-neutral-500">Web Stack</div>
                   <div className="mt-1 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-                    Laravel &amp; MySQL
+                    PHP, Laravel &amp; JS
                   </div>
                 </div>
                 <div className="rounded-xl bg-neutral-100/60 p-3 dark:bg-neutral-800/40">
