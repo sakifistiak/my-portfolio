@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Noto_Serif_Bengali } from 'next/font/google';
 import './globals.css';
 import { JsonLd } from '@/components/JsonLd';
 import { ClientLayout } from '@/components/ClientLayout';
@@ -9,7 +9,7 @@ const geistSans = Geist({
   subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
+const notoSerifBengali = Noto_Serif_Bengali({\n  variable: '--font-noto-serif-bengali',\n  subsets: ['bengali', 'latin'],\n  display: 'swap',\n});\n\nconst geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 });
@@ -121,7 +121,7 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${notoSerifBengali.variable} font-sans antialiased`}
       >
         <ClientLayout>{children}</ClientLayout>
       </body>
