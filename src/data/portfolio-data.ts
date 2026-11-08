@@ -18,6 +18,7 @@ export const personalInfo = {
     x: 'https://x.com/sakifistiak',
     devto: 'https://dev.to/sakifistiak',
     medium: 'https://medium.com/@sakifisitiak',
+    producthunt: 'https://www.producthunt.com/@sakifistiak',
     phone: '+8801727164101',
     whatsapp: 'https://wa.me/8801727164101',
     email: 'sakifistiakfahim@example.com',
