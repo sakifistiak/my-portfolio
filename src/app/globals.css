@@ -82,3 +82,11 @@ body {
 .light .bg-dot-pattern {
   background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
 }
+
+
+/* Bengali script uses Noto Serif Bengali; Latin UI keeps Geist. */
+:lang(bn),
+[lang="bn"],
+.bn-text {
+  font-family: var(--font-noto-serif-bengali), serif;
+}
