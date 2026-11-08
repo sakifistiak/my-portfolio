@@ -69,11 +69,11 @@ export function Hero() {
                 <div className="break-all text-[11px] sm:text-xs"><span className="text-emerald-400">sakif@portfolio</span><span className="text-neutral-500">:~$ </span><span className="text-neutral-200">ready_to_build</span><span className="ml-1 inline-block h-3.5 w-1.5 animate-pulse bg-emerald-400 align-middle" /></div>
               </div>
             </div>
-            <p className="mt-3 text-center font-mono text-[10px] text-neutral-600">/* Turning ideas into working products */</p>
+            <p className="mt-3 text-center font-mono text-[10px] text-neutral-600">{'/* Turning ideas into working products */'}</p>
           </motion.div>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-4 border-t border-neutral-800 pt-6 sm:mt-20 md:grid-cols-4">{[['01','Web applications','Laravel · PHP · Next.js'],['02','Business systems','Workflow · ERP · SaaS'],['03','Infrastructure','Linux · VPS · Hosting'],['04','Product thinking','Ideas · Strategy · Delivery']].map(([n,title,detail]) => <div key={n} className="min-w-0"><div className="font-mono text-[10px] text-emerald-400">{n} //</div><div className="mt-2 text-xs font-bold text-neutral-200 sm:text-sm">{title}</div><div className="mt-1 break-words text-[10px] text-neutral-500 sm:text-xs">{detail}</div></div>)}</div>
+        <div className="mt-14 grid grid-cols-2 gap-4 border-t border-neutral-800 pt-6 sm:mt-20 md:grid-cols-4">{[['01','Web applications','Laravel · PHP · Next.js'],['02','Business systems','Workflow · ERP · SaaS'],['03','Infrastructure','Linux · VPS · Hosting'],['04','Product thinking','Ideas · Strategy · Delivery']].map(([n,title,detail]) => <div key={n} className="min-w-0"><div className="font-mono text-[10px] text-emerald-400">{n} {'//'}</div><div className="mt-2 text-xs font-bold text-neutral-200 sm:text-sm">{title}</div><div className="mt-1 break-words text-[10px] text-neutral-500 sm:text-xs">{detail}</div></div>)}</div>
       </div>
     </section>
   );
