@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://sakifistiak.com'),
   title: {
-    default: 'Sakif Istiak (Sakif Istiak Fahim) — Laravel Developer & Product Builder',
+    default: 'Sakif Istiak (Sakif Istiak Fahim) — Software Developer & Product Builder',
     template: '%s | Sakif Istiak',
   },
   description:
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
     'Sakif Istiak Rajshahi',
     'Sakif Istiak Ecare Solution',
     'Sakif Istiak Portfolio',
-    'Laravel Developer Bangladesh',
-    'PHP Developer Rajshahi',
+    'Software Developer Bangladesh',
+    'PHP & WordPress Developer Rajshahi',
     'Varendra University BBA',
     'SaaS Builder',
     'Linux Sysadmin',
@@ -66,14 +66,14 @@ export const metadata: Metadata = {
     url: 'https://sakifistiak.com',
     title: 'Sakif Istiak (Sakif Istiak Fahim) — Laravel Developer & Product Builder',
     description:
-      'Official website of Sakif Istiak. Building digital products, exploring technology, and solving real business problems with Laravel, MySQL, and Linux VPS.',
+      'Official website of Sakif Istiak. Building digital products and practical web solutions across PHP, Laravel, WordPress, modern JavaScript frameworks, MySQL, and Linux infrastructure.',
     siteName: 'Sakif Istiak Portfolio',
     images: [
       {
         url: '/images/sakif-istiak.jpg',
         width: 1000,
         height: 1000,
-        alt: 'Sakif Istiak (Sakif Istiak Fahim) - Laravel Developer & Product Builder',
+        alt: 'Sakif Istiak (Sakif Istiak Fahim) - Software Developer & Product Builder',
       },
     ],
   },
