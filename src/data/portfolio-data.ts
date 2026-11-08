@@ -3,12 +3,12 @@ import { Project, TechItem, ExperienceItem } from '@/types';
 export const personalInfo = {
   name: 'Sakif Istiak Fahim',
   headline: 'Building Digital Products. Exploring Technology. Solving Real Problems.',
-  role: 'Laravel Developer & Product Builder',
+  role: 'Software Developer & Product Builder',
   currentPosition: 'Former Development Team Lead at Ecare Solution',
   location: 'Rajshahi, Bangladesh',
   education: 'BBA Student at Varendra University',
   status: 'Open for Collaboration & Projects',
-  bio: `I am an early-career developer, former Development Team Lead at Ecare Solution, and technology entrepreneur bridging backend software engineering with business strategy. My core focus revolves around the Laravel ecosystem, relational MySQL databases, Linux VPS administration, and building practical digital products like PingoLine and Siusho.`,
+  bio: `I am an early-career developer, former Development Team Lead at Ecare Solution, and technology entrepreneur bridging backend software engineering with business strategy. My work spans PHP and Laravel applications, WordPress websites, modern JavaScript frameworks, relational databases, Linux infrastructure, and practical digital products like PingoLine and Siusho. I also explore emerging technologies and tools as projects call for them.`,
   longBio: `Rather than writing code in isolation, I view software through both an engineering and a commercial lens. With hands-on leadership as Development Team Lead at Ecare Solution, 6 months of technical hosting support experience at Hostnin, and studying BBA at Varendra University, I understand how scalable codebases, automated workflows, and robust hosting infrastructure directly power real-world business productivity.`,
   socialLinks: {
     github: 'https://github.com/sakifistiak',
@@ -33,9 +33,9 @@ export const whatIDo = [
     id: 'web-dev',
     title: 'Web Application Development',
     subtitle: 'Scalable Backends & Clean Frontends',
-    description: 'Engineering robust MVC web applications using Laravel and modern PHP standards. Clean database migrations, eloquent relationships, security-first authentication, and maintainable modular architecture.',
+    description: 'Building and maintaining web experiences across the PHP ecosystem, Laravel applications, WordPress and WooCommerce sites, and modern JavaScript-based interfaces. Focused on maintainable architecture, reliable integrations, and practical user experiences.',
     icon: 'Code2',
-    tech: ['Laravel 10/11', 'PHP 8.2+', 'Blade & React', 'REST APIs', 'Eloquent ORM'],
+    tech: ['PHP', 'Laravel', 'WordPress', 'WooCommerce', 'Next.js', 'REST APIs'],
   },
   {
     id: 'business-software',
@@ -78,7 +78,7 @@ export const techStack: TechItem[] = [
     category: 'Backend',
     proficiency: 'Working Daily',
     iconName: 'laravel',
-    description: 'Primary framework: Routing, Middleware, Eloquent ORM, Queues, Auth, and API Resources',
+    description: 'PHP application framework experience: routing, middleware, ORM, queues, authentication, and API development',
   },
   {
     name: 'PHP',
@@ -102,6 +102,13 @@ export const techStack: TechItem[] = [
     description: 'Component-driven server-side rendering, layouts, slots, and reusable UI fragments',
   },
 
+  {
+    name: 'WordPress & WooCommerce',
+    category: 'Backend',
+    proficiency: 'Working Daily',
+    iconName: 'wordpress',
+    description: 'CMS-based website building, WooCommerce configuration, themes, plugins, and business website workflows',
+  },
   // Frontend
   {
     name: 'React',
@@ -132,6 +139,13 @@ export const techStack: TechItem[] = [
     description: 'Semantic markup, accessibility basics, flexbox, CSS grid, and responsive styling',
   },
 
+  {
+    name: 'Next.js',
+    category: 'Frontend',
+    proficiency: 'Active Exploration',
+    iconName: 'nextjs',
+    description: 'React-based full-stack framework, App Router, server components, and modern web application patterns',
+  },
   // Database
   {
     name: 'MySQL',
@@ -192,6 +206,13 @@ export const techStack: TechItem[] = [
     description: 'Containerization basics, Dockerfile, docker-compose for reproducible local environments',
   },
 
+  {
+    name: 'Rust',
+    category: 'Backend',
+    proficiency: 'Active Exploration',
+    iconName: 'rust',
+    description: 'Exploring Rust fundamentals, ownership, type safety, and systems programming concepts',
+  },
   // Tools & Platforms
   {
     name: 'Git & GitHub',
