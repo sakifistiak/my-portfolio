@@ -92,7 +92,7 @@ export function Hero() {
                 <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-400 opacity-50 blur-sm group-hover:opacity-100 transition duration-300" />
                 <Image
                   src="/images/sakif-istiak.jpg"
-                  alt="Sakif Istiak (Sakif Istiak Fahim) — Laravel Developer & Product Builder"
+                  alt="Sakif Istiak (Sakif Istiak Fahim) — Software Developer & Product Builder"
                   width={92}
                   height={92}
                   priority
@@ -124,7 +124,7 @@ export function Hero() {
             </div>
 
             <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">
-              <span>Laravel Architecture</span>
+              <span>Web Development</span>
               <span>•</span>
               <span>Linux VPS Sysadmin</span>
               <span>•</span>
@@ -140,7 +140,7 @@ export function Hero() {
             </p>
 
             <p className="mt-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl">
-              Technology entrepreneur and backend software developer with leadership experience as Development Team Lead at Ecare Solution and technical support expertise at Hostnin. Bridging robust Laravel backends, relational MySQL databases, and Linux server management with business strategy.
+              Software developer and product builder working across PHP, Laravel, WordPress, modern JavaScript frameworks, databases, and Linux infrastructure. I enjoy choosing practical tools for each problem and turning business needs into useful digital products.
             </p>
 
             {/* Quick credentials pill row */}
@@ -236,10 +236,10 @@ export function Hero() {
         >
           <div className="rounded-xl border border-neutral-200/60 bg-white/60 p-4 backdrop-blur-md dark:border-neutral-800/60 dark:bg-neutral-900/50">
             <div className="text-[11px] font-mono uppercase tracking-wider text-neutral-500">
-              Primary Framework
+              Web Development
             </div>
             <div className="mt-1 text-base font-bold text-neutral-900 dark:text-neutral-100">
-              Laravel &amp; PHP 8.x
+              PHP • Laravel • WordPress
             </div>
           </div>
 
