@@ -9,7 +9,13 @@ const geistSans = Geist({
   subsets: ['latin'],
 });
 
-const notoSerifBengali = Noto_Serif_Bengali({\n  variable: '--font-noto-serif-bengali',\n  subsets: ['bengali', 'latin'],\n  display: 'swap',\n});\n\nconst geistMono = Geist_Mono({
+const notoSerifBengali = Noto_Serif_Bengali({
+  variable: '--font-noto-serif-bengali',
+  subsets: ['bengali', 'latin'],
+  display: 'swap',
+});
+
+const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 });
