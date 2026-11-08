@@ -17,7 +17,7 @@ export function TerminalIntro() {
       output: (
         <div className="space-y-1 text-neutral-300">
           <p className="text-emerald-400 font-semibold">Sakif Istiak Fahim</p>
-          <p className="text-neutral-400">Laravel Developer & Product Builder • BBA Student at Varendra University</p>
+          <p className="text-neutral-400">Software Developer & Product Builder • BBA Student at Varendra University</p>
           <p className="text-neutral-400">Location: Rajshahi, Bangladesh • Intern at Ecare Solution</p>
         </div>
       ),
@@ -28,7 +28,7 @@ export function TerminalIntro() {
         <pre className="font-mono text-xs text-sky-300/90 leading-relaxed overflow-x-auto">
 {`{
   "status": "Available for collaboration",
-  "focus": ["Laravel", "MySQL", "Linux VPS", "SaaS & ERP"],
+  "focus": ["PHP", "Laravel", "WordPress", "Next.js", "Linux", "SaaS"],
   "mindset": "Engineering practical solutions for business needs"
 }`}
         </pre>
@@ -77,11 +77,11 @@ export function TerminalIntro() {
       case 'skills':
         result = (
           <div className="space-y-1.5 text-xs text-neutral-300">
-            <p className="text-sky-400 font-semibold">Core Stack & Exploration:</p>
-            <p><span className="text-emerald-400">• Backend:</span> Laravel, Modern PHP 8.x, REST APIs, Blade</p>
-            <p><span className="text-emerald-400">• Database:</span> MySQL, Relational schema, Transactions, Indexing</p>
+            <p className="text-sky-400 font-semibold">Web Technologies & Exploration:</p>
+            <p><span className="text-emerald-400">• Backend:</span> PHP, Laravel, WordPress, WooCommerce, REST APIs</p>
+            <p><span className="text-emerald-400">• Database:</span> MySQL, relational schema, transactions, indexing</p>
             <p><span className="text-emerald-400">• Infrastructure:</span> Linux VPS (Ubuntu/Debian), cPanel & WHM, CloudLinux, Nginx</p>
-            <p><span className="text-emerald-400">• Frontend:</span> React fundamentals, Tailwind CSS, JavaScript ES6+</p>
+            <p><span className="text-emerald-400">• Frontend:</span> React, Next.js exploration, Tailwind CSS, JavaScript ES6+</p>
             <p><span className="text-emerald-400">• Automation:</span> WhatsApp & Telegram Bot APIs, Webhooks, Cron</p>
           </div>
         );
