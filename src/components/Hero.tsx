@@ -12,8 +12,8 @@ import {
   Briefcase,
   Server,
   Layers,
-  Instagram,
-  Twitter,
+  Camera,
+  AtSign,
   BookOpen,
   Code2,
   Rocket,
@@ -218,10 +218,10 @@ export function Hero() {
                 </a>
 
                 <a href={personalInfo.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-200 bg-white/80 text-neutral-700 transition hover:bg-neutral-100 hover:text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white" aria-label="Sakif Istiak Instagram Profile" title="Instagram">
-                  <Instagram className="h-5 w-5" />
+                  <Camera className="h-5 w-5" />
                 </a>
                 <a href={personalInfo.socialLinks.x} target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-200 bg-white/80 text-neutral-700 transition hover:bg-neutral-100 hover:text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white" aria-label="Sakif Istiak on X" title="X">
-                  <Twitter className="h-5 w-5" />
+                  <AtSign className="h-5 w-5" />
                 </a>
                 <a href={personalInfo.socialLinks.devto} target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-200 bg-white/80 text-neutral-700 transition hover:bg-neutral-100 hover:text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white" aria-label="Sakif Istiak Dev.to Profile" title="Dev.to">
                   <Code2 className="h-5 w-5" />
