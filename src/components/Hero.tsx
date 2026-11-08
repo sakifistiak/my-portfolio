@@ -16,6 +16,7 @@ import {
   Twitter,
   BookOpen,
   Code2,
+  Rocket,
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, FacebookIcon } from './Icons';
 import { personalInfo } from '@/data/portfolio-data';
@@ -227,6 +228,9 @@ export function Hero() {
                 </a>
                 <a href={personalInfo.socialLinks.medium} target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-200 bg-white/80 text-neutral-700 transition hover:bg-neutral-100 hover:text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white" aria-label="Sakif Istiak Medium Profile" title="Medium">
                   <BookOpen className="h-5 w-5" />
+                </a>
+                <a href={personalInfo.socialLinks.producthunt} target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-xl border border-neutral-200 bg-white/80 text-neutral-700 transition hover:bg-neutral-100 hover:text-neutral-950 dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white" aria-label="Sakif Istiak Product Hunt Profile" title="Product Hunt">
+                  <Rocket className="h-5 w-5" />
                 </a>
               </div>
             </div>
