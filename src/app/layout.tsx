@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sakifistiak.com'),
+  metadataBase: new URL('https://sakif.pro.bd'),
   title: {
     default: 'Sakif Istiak (Sakif Istiak Fahim) — Software Developer & Product Builder',
     template: '%s | Sakif Istiak',
@@ -50,17 +50,17 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'Sakif Istiak',
-      url: 'https://sakifistiak.com',
+      url: 'https://sakif.pro.bd',
     },
     {
       name: 'Sakif Istiak Fahim',
-      url: 'https://sakifistiak.com',
+      url: 'https://sakif.pro.bd',
     },
   ],
   creator: 'Sakif Istiak',
   publisher: 'Sakif Istiak',
   alternates: {
-    canonical: 'https://sakifistiak.com',
+    canonical: 'https://sakif.pro.bd',
   },
   openGraph: {
     type: 'profile',
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     username: 'sakifistiak',
     gender: 'male',
     locale: 'en_US',
-    url: 'https://sakifistiak.com',
+    url: 'https://sakif.pro.bd',
     title: 'Sakif Istiak (Sakif Istiak Fahim) — Laravel Developer & Product Builder',
     description:
       'Official website of Sakif Istiak. Building digital products and practical web solutions across PHP, Laravel, WordPress, modern JavaScript frameworks, MySQL, and Linux infrastructure.',

@@ -14,7 +14,7 @@ jobs:
         env:
           TARGET_URL: ${{ secrets.RENDER_SITE_URL || vars.RENDER_SITE_URL }}
         run: |
-          URL="${TARGET_URL:-https://my-portfolio-sakifistiak.onrender.com}"
+          URL="${TARGET_URL:-https://sakif.pro.bd}"
           echo "Pinging ${URL}/api/health at $(date -u)"
           HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -L --max-time 30 "${URL}/api/health" || echo "failed")
           echo "Response code: ${HTTP_STATUS}"

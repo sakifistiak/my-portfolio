@@ -6,7 +6,7 @@ export function JsonLd() {
     '@graph': [
       {
         '@type': 'Person',
-        '@id': 'https://sakifistiak.com/#person',
+        '@id': 'https://sakif.pro.bd/#person',
         name: 'Sakif Istiak Fahim',
         alternateName: [
           'Sakif Istiak',
@@ -17,8 +17,8 @@ export function JsonLd() {
         givenName: 'Sakif',
         familyName: 'Istiak',
         additionalName: 'Fahim',
-        url: 'https://sakifistiak.com',
-        image: 'https://sakifistiak.com/images/sakif-istiak.jpg',
+        url: 'https://sakif.pro.bd',
+        image: 'https://sakif.pro.bd/images/sakif-istiak.jpg',
         description:
           'Sakif Istiak (Sakif Istiak Fahim) is a Laravel Developer, Technology Enthusiast, and Product Builder from Rajshahi, Bangladesh. Former Development Team Lead at Ecare Solution and BBA student at Varendra University.',
         jobTitle: 'Laravel Developer & Product Builder',
@@ -55,31 +55,31 @@ export function JsonLd() {
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://sakifistiak.com/#website',
-        url: 'https://sakifistiak.com',
+        '@id': 'https://sakif.pro.bd/#website',
+        url: 'https://sakif.pro.bd',
         name: 'Sakif Istiak — Official Portfolio',
         alternateName: 'Sakif Istiak Fahim Portfolio',
         description:
           'Official personal website and developer portfolio of Sakif Istiak (Sakif Istiak Fahim). Laravel Developer, Product Builder, and Tech Enthusiast.',
         publisher: {
-          '@id': 'https://sakifistiak.com/#person',
+          '@id': 'https://sakif.pro.bd/#person',
         },
         inLanguage: 'en-US',
       },
       {
         '@type': 'ProfilePage',
-        '@id': 'https://sakifistiak.com/#profilepage',
-        url: 'https://sakifistiak.com',
+        '@id': 'https://sakif.pro.bd/#profilepage',
+        url: 'https://sakif.pro.bd',
         name: 'About Sakif Istiak',
         isPartOf: {
-          '@id': 'https://sakifistiak.com/#website',
+          '@id': 'https://sakif.pro.bd/#website',
         },
         about: {
-          '@id': 'https://sakifistiak.com/#person',
+          '@id': 'https://sakif.pro.bd/#person',
         },
         primaryImageOfPage: {
           '@type': 'ImageObject',
-          url: 'https://sakifistiak.com/images/sakif-istiak.jpg',
+          url: 'https://sakif.pro.bd/images/sakif-istiak.jpg',
         },
       },
     ],

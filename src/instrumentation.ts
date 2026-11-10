@@ -1,7 +1,10 @@
 export async function register() {
-  if (process.env.NEXT_RUNTIME === 'nodejs') {
+  if (process.env.NEXT_RUNTIME === 'nodejs' && process.env.NODE_ENV === 'production') {
     // Render automatically provides RENDER_EXTERNAL_URL in its environment
-    const externalUrl = process.env.RENDER_EXTERNAL_URL || process.env.SITE_URL;
+    const externalUrl =
+      process.env.RENDER_EXTERNAL_URL ||
+      process.env.SITE_URL ||
+      'https://sakif.pro.bd';
 
     if (externalUrl) {
       // Ping every 10 minutes (Render spins down after 15 minutes of inactivity)
