@@ -23,11 +23,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://sakif.pro.bd'),
   title: {
-    default: 'Sakif Istiak (Sakif Istiak Fahim) — Software Developer & Product Builder',
+    default: 'Sakif Istiak — Official Website | Developer & Product Builder',
     template: '%s | Sakif Istiak',
   },
   description:
-    'Official portfolio of Sakif Istiak (Sakif Istiak Fahim) — Former Development Team Lead at Ecare Solution and BBA student at Varendra University in Rajshahi, Bangladesh. Building digital products, SaaS backends, and practical business software.',
+    'Sakif Istiak (Sakif Istiak Fahim) is a software developer and product builder from Rajshahi, Bangladesh. Explore his portfolio, projects, Laravel and PHP work, web development, and technology experience.',
   keywords: [
     'Sakif Istiak',
     'Sakif Istiak Fahim',
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     gender: 'male',
     locale: 'en_US',
     url: 'https://sakif.pro.bd',
-    title: 'Sakif Istiak (Sakif Istiak Fahim) — Laravel Developer & Product Builder',
+    title: 'Sakif Istiak — Official Portfolio | Laravel Developer & Product Builder',
     description:
       'Official website of Sakif Istiak. Building digital products and practical web solutions across PHP, Laravel, WordPress, modern JavaScript frameworks, MySQL, and Linux infrastructure.',
     siteName: 'Sakif Istiak Portfolio',
