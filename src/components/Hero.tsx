@@ -41,7 +41,7 @@ export function Hero() {
           <motion.div initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="min-w-0 lg:col-span-6">
             <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-emerald-500/20 bg-neutral-900/80 px-3 py-2 font-mono text-xs text-emerald-400"><Terminal className="h-3.5 w-3.5" />whoami <span className="text-neutral-600">→</span> sakif-istiak</div>
             <p className="mb-3 font-mono text-sm text-neutral-400"><span className="text-emerald-400">const</span> developer = <span className="text-amber-300">&quot;Sakif Istiak&quot;</span>;</p>
-            <h1 className="max-w-2xl break-words text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl">Building digital <span className="block text-emerald-400">things that work.</span></h1>
+            <h1 className="max-w-2xl break-words text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl">Sakif Istiak <span className="block text-emerald-400">Developer &amp; Product Builder.</span></h1>
             <p className="mt-6 max-w-xl text-sm leading-7 text-neutral-300 sm:text-base sm:leading-8">Software developer and product builder working across Laravel, PHP, modern web technologies, and Linux infrastructure. I turn practical problems into useful digital products.</p>
             <div className="mt-7 grid grid-cols-1 gap-2 min-[420px]:grid-cols-2">
               {[
