@@ -41,6 +41,10 @@ export function JsonLd() {
           'https://github.com/sakifistiak',
           'https://www.linkedin.com/in/sakifistiak',
           'https://www.facebook.com/sakifistiak1/',
+          'https://www.instagram.com/sakifistiak1/',
+          'https://x.com/sakifistiak',
+          'https://dev.to/sakifistiak',
+          'https://www.producthunt.com/@sakifistiak',
         ],
         knowsAbout: [
           'Laravel Development',
