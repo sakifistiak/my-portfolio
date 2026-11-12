@@ -261,6 +261,9 @@ export const projects: Project[] = [
     technologies: ['Laravel', 'SIP / VoIP Protocols', 'Linux VPS', 'Tailwind CSS', 'FreePBX / Asterisk Concepts'],
     status: 'In Active Development',
     statusColor: 'blue',
+    links: {
+      live: 'https://pingoline.com/',
+    },
     featured: true,
     architectureHighlights: [
       'Virtual PBX ring groups, call queue routing, and automated IVR attendants',
