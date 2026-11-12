@@ -226,10 +226,11 @@ export function FeaturedProjects() {
                             href={project.links.live}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition"
-                            title="Live Demo"
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition"
+                            title="View Live Site"
                           >
-                            <ExternalLink className="h-4 w-4" />
+                            <span>View Live Site</span>
+                            <ExternalLink className="h-3.5 w-3.5" />
                           </a>
                         )}
                       </div>
