@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Projects & Products — Sakif Istiak',
   description:
     'Explore featured digital products built by Sakif Istiak, including PingoLine (ezyPBX), Siusho Assistant Bot, Digital Khata, and Sakiffo Task Reminder.',
+  alternates: {
+    canonical: 'https://sakif.pro.bd/projects',
+  },
 };
 
 export default function ProjectsPage() {
