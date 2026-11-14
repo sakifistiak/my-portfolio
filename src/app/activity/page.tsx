@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'GitHub & Developer Activity — Sakif Istiak',
   description:
     'Interactive 52-week contribution heatmap, Git activity stream, and engineering standards of Sakif Istiak.',
+  alternates: {
+    canonical: 'https://sakif.pro.bd/activity',
+  },
 };
 
 export default function ActivityPage() {
