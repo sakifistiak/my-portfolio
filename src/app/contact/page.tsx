@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Contact & Collaboration — Sakif Istiak',
   description:
     'Get in touch with Sakif Istiak (Sakif Istiak Fahim) for software collaborations, Laravel projects, SaaS consultation, or direct inquiries.',
+  alternates: {
+    canonical: 'https://sakif.pro.bd/contact',
+  },
 };
 
 export default function ContactPage() {
