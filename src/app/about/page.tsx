@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'About Sakif Istiak — Background, Experience & Systems',
   description:
     'Discover the journey of Sakif Istiak (Sakif Istiak Fahim) — former Development Team Lead at Ecare Solution, BBA student at Varendra University, and backend developer.',
+  alternates: {
+    canonical: 'https://sakif.pro.bd/about',
+  },
 };
 
 export default function AboutPage() {
