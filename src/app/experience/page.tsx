@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Experience & Education Timeline — Sakif Istiak',
   description:
     'Career and academic milestones of Sakif Istiak: Development Team Lead at Ecare Solution, Technical Support Specialist at Hostnin, and BBA student at Varendra University.',
+  alternates: {
+    canonical: 'https://sakif.pro.bd/experience',
+  },
 };
 
 export default function ExperiencePage() {
