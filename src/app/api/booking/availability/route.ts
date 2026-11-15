@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { calendarRequest, MEETING_TYPES, TIME_ZONE, isMeetingType } from '@/lib/google-calendar';
+import { getCalendarConfig, getGoogleAccessToken, MEETING_TYPES, TIME_ZONE, isMeetingType } from '@/lib/google-calendar';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,26 +19,20 @@ export async function GET(request: NextRequest) {
 
     const start = dateAtDhaka(date, 10);
     const end = dateAtDhaka(date, 20);
-    if (start.getTime() < Date.now() - 60_000) {
-      return NextResponse.json({ slots: [] });
-    }
+    if (start.getTime() < Date.now() - 60_000) return NextResponse.json({ slots: [] });
 
-    const result = await calendarRequest<{ busy?: BusyPeriod[] }>('/events', {
-      method: 'GET',
-      headers: {},
-    }).catch(async () => {
-      const freeBusy = await fetch('https://www.googleapis.com/calendar/v3/freeBusy', {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${await (await import('@/lib/google-calendar')).getGoogleAccessToken()}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ timeMin: start.toISOString(), timeMax: end.toISOString(), timeZone: TIME_ZONE, items: [{ id: process.env.GOOGLE_CALENDAR_ID }] }),
-        cache: 'no-store',
-      });
-      const data = await freeBusy.json();
-      if (!freeBusy.ok) throw new Error(data.error?.message || 'Could not check calendar availability.');
-      return data.calendars?.[process.env.GOOGLE_CALENDAR_ID || ''] || { busy: [] };
+    const config = getCalendarConfig();
+    const token = await getGoogleAccessToken();
+    const response = await fetch('https://www.googleapis.com/calendar/v3/freeBusy', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ timeMin: start.toISOString(), timeMax: end.toISOString(), timeZone: TIME_ZONE, items: [{ id: config.calendarId }] }),
+      cache: 'no-store',
     });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error?.message || 'Could not check calendar availability.');
+    const busy: BusyPeriod[] = data.calendars?.[config.calendarId]?.busy || [];
 
-    const busy = result.busy || [];
     const duration = MEETING_TYPES[type].duration;
     const slots: string[] = [];
     for (let minutes = 10 * 60; minutes + duration <= 20 * 60; minutes += 30) {
