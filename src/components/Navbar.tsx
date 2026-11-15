@@ -32,6 +32,7 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
     { name: 'Activity', href: '/activity' },
     { name: 'Experience', href: '/experience' },
     { name: 'Contact', href: '/contact' },
+    { name: 'Book a Meeting', href: '/book-meeting' },
   ];
 
   return (
@@ -103,10 +104,10 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
 
           {/* Direct CTA */}
           <Link
-            href="/contact"
-            className="hidden lg:flex items-center gap-1.5 rounded-lg bg-neutral-900 px-3.5 py-1.5 text-xs font-medium text-white transition hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200 shadow-sm"
+            href="/book-meeting"
+            className="hidden lg:flex items-center gap-1.5 rounded-lg bg-emerald-500 px-3.5 py-1.5 text-xs font-semibold text-neutral-950 transition hover:bg-emerald-400 shadow-sm"
           >
-            <span>Let&apos;s Connect</span>
+            <span>Book a Meeting</span>
             <ArrowUpRight className="h-3 w-3" />
           </Link>
 
