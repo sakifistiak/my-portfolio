@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     const end = dateAtDhaka(date, 20);
     if (start.getTime() < Date.now() - 60_000) return NextResponse.json({ slots: [] });
 
-    const config = getCalendarConfig();
+    const config = await getCalendarConfig();
     const token = await getGoogleAccessToken();
     const response = await fetch('https://www.googleapis.com/calendar/v3/freeBusy', {
       method: 'POST',
