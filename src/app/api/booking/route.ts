@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const name = String(body.name || '').trim();
-    const email = String(body.email || '').trim().toLowerCase();\n    const whatsapp = String(body.whatsapp || '').trim();
+    const email = String(body.email || '').trim().toLowerCase();\n    const whatsapp = String(body.whatsapp || '').trim();\n    const whatsapp = String(body.whatsapp || '').trim();
     const company = String(body.company || '').trim();
     const topic = String(body.topic || '').trim();
     const meetingType = body.meetingType;
