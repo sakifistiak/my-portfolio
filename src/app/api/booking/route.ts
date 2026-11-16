@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const name = String(body.name || '').trim();
-    const email = String(body.email || '').trim().toLowerCase();
+    const email = String(body.email || '').trim().toLowerCase();\n    const whatsapp = String(body.whatsapp || '').trim();
     const company = String(body.company || '').trim();
     const topic = String(body.topic || '').trim();
     const meetingType = body.meetingType;
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     const end = new Date(start.getTime() + duration * 60_000);
     const startHour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: TIME_ZONE, hour: '2-digit', hourCycle: 'h23' }).format(start));
     const endHour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: TIME_ZONE, hour: '2-digit', hourCycle: 'h23' }).format(end));
-    if (startHour < 10 || endHour > 20) return NextResponse.json({ error: 'That time is outside the booking hours.' }, { status: 400 });
+    const startMinute = Number(new Intl.DateTimeFormat('en-GB', { timeZone: TIME_ZONE, minute: '2-digit' }).format(start));\n    const preferredSlot = ([10, 11, 14, 15].includes(startHour) && startMinute === 0) || (startHour >= 16 && startHour < 20 && (startMinute === 0 || startMinute === 30));\n    if (startHour < 10 || endHour > 20 || !preferredSlot) return NextResponse.json({ error: 'Please choose one of the available booking times.' }, { status: 400 });
 
     const mailSettings = await getBookingMailSettings();
     if (!mailSettings?.password_enc) return NextResponse.json({ error: 'Booking email is not configured yet.' }, { status: 503 });
@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
     const safeEmail = escapeHtml(email);
     const safeCompany = escapeHtml(company || 'Not provided');
     const safeTopic = escapeHtml(topic).replace(/\n/g, '<br>');
-    const html = `<div style="font-family:Arial,sans-serif;line-height:1.6;color:#171717"><h2>New meeting booking</h2><p><b>Name:</b> ${safeName}<br><b>Email:</b> ${safeEmail}<br><b>Company:</b> ${safeCompany}<br><b>Meeting:</b> ${meetingLabel}<br><b>Date:</b> ${dateText}<br><b>Time:</b> ${timeText} (Asia/Dhaka)<br><b>Duration:</b> ${duration} minutes</p><h3>Discussion topic</h3><p>${safeTopic}</p><p>${event.hangoutLink ? `<b>Google Meet:</b> <a href="${event.hangoutLink}">${event.hangoutLink}</a><br>` : ''}<a href="${event.htmlLink || 'https://calendar.google.com/calendar/u/0/r'}">Open Google Calendar event</a></p></div>`;
+    const html = `<div style="font-family:Arial,sans-serif;line-height:1.6;color:#171717"><h2>New meeting booking</h2><p><b>Name:</b> ${safeName}<br><b>Email:</b> ${safeEmail}<br><b>WhatsApp:</b> ${escapeHtml(whatsapp)}<br><b>Company:</b> ${safeCompany}<br><b>Meeting:</b> ${meetingLabel}<br><b>Date:</b> ${dateText}<br><b>Time:</b> ${timeText} (Asia/Dhaka)<br><b>Duration:</b> ${duration} minutes</p><h3>Discussion topic</h3><p>${safeTopic}</p><p>${event.hangoutLink ? `<b>Google Meet:</b> <a href="${event.hangoutLink}">${event.hangoutLink}</a><br>` : ''}<a href="${event.htmlLink || 'https://calendar.google.com/calendar/u/0/r'}">Open Google Calendar event</a></p></div>`;
 
     try {
       await sendBookingEmail(notifyEmail, `New meeting: ${meetingLabel} — ${name}`, html, email);
