@@ -13,7 +13,8 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const name = String(body.name || '').trim();
-    const email = String(body.email || '').trim().toLowerCase();\n    const whatsapp = String(body.whatsapp || '').trim();\n    const whatsapp = String(body.whatsapp || '').trim();
+    const email = String(body.email || '').trim().toLowerCase();
+    const whatsapp = String(body.whatsapp || '').trim();
     const company = String(body.company || '').trim();
     const topic = String(body.topic || '').trim();
     const meetingType = body.meetingType;
@@ -28,7 +29,9 @@ export async function POST(request: NextRequest) {
     const end = new Date(start.getTime() + duration * 60_000);
     const startHour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: TIME_ZONE, hour: '2-digit', hourCycle: 'h23' }).format(start));
     const endHour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: TIME_ZONE, hour: '2-digit', hourCycle: 'h23' }).format(end));
-    const startMinute = Number(new Intl.DateTimeFormat('en-GB', { timeZone: TIME_ZONE, minute: '2-digit' }).format(start));\n    const preferredSlot = ([10, 11, 14, 15].includes(startHour) && startMinute === 0) || (startHour >= 16 && startHour < 20 && (startMinute === 0 || startMinute === 30));\n    if (startHour < 10 || endHour > 20 || !preferredSlot) return NextResponse.json({ error: 'Please choose one of the available booking times.' }, { status: 400 });
+    const startMinute = Number(new Intl.DateTimeFormat('en-GB', { timeZone: TIME_ZONE, minute: '2-digit' }).format(start));
+    const preferredSlot = ([10, 11, 14, 15].includes(startHour) && startMinute === 0) || (startHour >= 16 && startHour < 20 && (startMinute === 0 || startMinute === 30));
+    if (startHour < 10 || endHour > 20 || !preferredSlot) return NextResponse.json({ error: 'Please choose one of the available booking times.' }, { status: 400 });
 
     const mailSettings = await getBookingMailSettings();
     if (!mailSettings?.password_enc) return NextResponse.json({ error: 'Booking email is not configured yet.' }, { status: 503 });
@@ -53,6 +56,7 @@ export async function POST(request: NextRequest) {
     const { data: booking, error: insertError } = await supabase.from('bookings').insert({
       full_name: name,
       email,
+      whatsapp_number: whatsapp,
       company: company || null,
       meeting_type: meetingType,
       meeting_label: meetingLabel,
@@ -77,7 +81,7 @@ export async function POST(request: NextRequest) {
       method: 'POST',
       body: JSON.stringify({
         summary: `${meetingLabel} — ${name}`,
-        description: `Meeting with ${name}\nEmail: ${email}\nCompany: ${company || 'Not provided'}\n\nDiscussion:\n${topic}\n\nBooked via sakif.pro.bd/book-meeting`,
+        description: `Meeting with ${name}\nEmail: ${email}\nWhatsApp: ${whatsapp}\nCompany: ${company || 'Not provided'}\n\nDiscussion:\n${topic}\n\nBooked via sakif.pro.bd/book-meeting`,
         start: { dateTime: start.toISOString(), timeZone: TIME_ZONE },
         end: { dateTime: end.toISOString(), timeZone: TIME_ZONE },
         attendees: [{ email }],
