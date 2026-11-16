@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     if (startHour < 10 || endHour > 20 || !preferredSlot) return NextResponse.json({ error: 'Please choose one of the available booking times.' }, { status: 400 });
 
     const mailSettings = await getBookingMailSettings();
-    if (!mailSettings?.password_enc) return NextResponse.json({ error: 'Booking email is not configured yet.' }, { status: 503 });
+    if (!mailSettings?.configured) return NextResponse.json({ error: 'Booking email is not configured yet.' }, { status: 503 });
     const notifyEmail = mailSettings.notification_email as string;
 
     const freeBusyResponse = await fetch('https://www.googleapis.com/calendar/v3/freeBusy', {
