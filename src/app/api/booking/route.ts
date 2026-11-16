@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
 
     const meetingLabel = MEETING_TYPES[meetingType as keyof typeof MEETING_TYPES].label;
     const supabase = getSupabaseAdmin();
-    const { data: booking, error: insertError } = await supabase.from('bookings').insert({
+    const bookingPayload = {
       full_name: name,
       email,
       whatsapp_number: whatsapp,
@@ -66,7 +66,18 @@ export async function POST(request: NextRequest) {
       end_at: end.toISOString(),
       timezone: TIME_ZONE,
       status: 'pending',
-    }).select('id').single();
+    };
+    let { data: booking, error: insertError } = await supabase.from('bookings').insert(bookingPayload).select('id').single();
+
+    // Older Supabase schemas may not yet include the recently added WhatsApp field.
+    // Retry without that column and retain the number in the topic until the migration is applied.
+    if (insertError?.code === 'PGRST204' && String(insertError.message || '').includes('whatsapp_number')) {
+      const fallbackPayload = { ...bookingPayload, topic: `${topic}\n\nWhatsApp: ${whatsapp}` } as Record<string, unknown>;
+      delete fallbackPayload.whatsapp_number;
+      const retry = await supabase.from('bookings').insert(fallbackPayload).select('id').single();
+      booking = retry.data;
+      insertError = retry.error;
+    }
 
     if (insertError || !booking) {
       if (insertError?.code === '23P01' || insertError?.code === '23505') {
