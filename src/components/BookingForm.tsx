@@ -31,7 +31,7 @@ export function BookingForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', company: '', topic: '' });
+  const [form, setForm] = useState({ name: '', email: '', whatsapp: '', company: '', topic: '' });
 
   const selectedMeeting = useMemo(() => meetingTypes.find((item) => item.id === meetingType)!, [meetingType]);
   const minDate = localDateString(new Date());
@@ -105,7 +105,7 @@ export function BookingForm() {
           </div>
           <label className="mt-6 block text-sm font-medium">Select a date</label>
           <input type="date" min={minDate} max={maxDate} value={date} onChange={(e) => setDate(e.target.value)} className="mt-2 w-full rounded-xl border border-neutral-200 bg-transparent px-4 py-3 text-sm outline-none focus:border-emerald-500 dark:border-neutral-800" />
-          <div className="mt-6 flex items-center justify-between"><span className="text-sm font-medium">Available times</span><span className="text-xs text-neutral-500">10:00 AM – 8:00 PM</span></div>
+          <div className="mt-6 flex items-center justify-between"><span className="text-sm font-medium">Available times</span><span className="text-xs text-neutral-500">10 AM–8 PM · More evening slots</span></div>
           {loadingSlots ? <div className="flex items-center gap-2 py-8 text-sm text-neutral-500"><LoaderCircle className="h-4 w-4 animate-spin" /> Checking Google Calendar…</div> : slots.length ? <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4">{slots.map((slot) => <button key={slot} type="button" onClick={() => setSelectedSlot(slot)} className={`rounded-xl border px-2 py-3 text-sm transition ${selectedSlot === slot ? 'border-emerald-500 bg-emerald-500 text-white' : 'border-neutral-200 hover:border-emerald-500 dark:border-neutral-800'}`}>{displayTime(slot)}</button>)}</div> : <p className="py-6 text-sm text-neutral-500">{error || 'No available times on this date. Try another day.'}</p>}
           {selectedSlot && <p className="mt-4 flex items-center gap-2 text-xs text-emerald-600"><Clock3 className="h-3.5 w-3.5" /> {displayDate(date)} at {displayTime(selectedSlot)} · {selectedMeeting.duration} minutes</p>}
         </section>
@@ -115,7 +115,7 @@ export function BookingForm() {
           <div className="mt-5 space-y-4">
             <label className="block text-sm font-medium">Full name <span className="text-rose-500">*</span><input required maxLength={100} autoComplete="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="mt-2 w-full rounded-xl border border-neutral-200 bg-transparent px-4 py-3 text-sm outline-none focus:border-emerald-500 dark:border-neutral-800" placeholder="Your name" /></label>
             <label className="block text-sm font-medium">Email address <span className="text-rose-500">*</span><input required type="email" maxLength={254} autoComplete="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="mt-2 w-full rounded-xl border border-neutral-200 bg-transparent px-4 py-3 text-sm outline-none focus:border-emerald-500 dark:border-neutral-800" placeholder="you@example.com" /></label>
-            <label className="block text-sm font-medium">Company / organization <span className="text-neutral-500">(optional)</span><input maxLength={150} autoComplete="organization" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className="mt-2 w-full rounded-xl border border-neutral-200 bg-transparent px-4 py-3 text-sm outline-none focus:border-emerald-500 dark:border-neutral-800" placeholder="Company name" /></label>
+            <label className="block text-sm font-medium">WhatsApp number <span className="text-rose-500">*</span><input required type="tel" maxLength={20} autoComplete="tel" value={form.whatsapp} onChange={(e) => setForm({ ...form, whatsapp: e.target.value })} className="mt-2 w-full rounded-xl border border-neutral-200 bg-transparent px-4 py-3 text-sm outline-none focus:border-emerald-500 dark:border-neutral-800" placeholder="+8801XXXXXXXXX" /></label>\n            <label className="block text-sm font-medium">Company / organization <span className="text-neutral-500">(optional)</span><input maxLength={150} autoComplete="organization" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} className="mt-2 w-full rounded-xl border border-neutral-200 bg-transparent px-4 py-3 text-sm outline-none focus:border-emerald-500 dark:border-neutral-800" placeholder="Company name" /></label>
             <label className="block text-sm font-medium">What would you like to discuss? <span className="text-rose-500">*</span><textarea required maxLength={2000} rows={5} value={form.topic} onChange={(e) => setForm({ ...form, topic: e.target.value })} className="mt-2 w-full resize-y rounded-xl border border-neutral-200 bg-transparent px-4 py-3 text-sm outline-none focus:border-emerald-500 dark:border-neutral-800" placeholder="Share a little context about your meeting…" /></label>
           </div>
           {error && <p role="alert" className="mt-4 rounded-xl border border-rose-500/30 bg-rose-500/5 p-3 text-sm text-rose-600">{error}</p>}
