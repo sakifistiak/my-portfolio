@@ -17,14 +17,25 @@ type MailSettings = {
 
 async function loadMailSettings():Promise<MailSettings|null>{
  const env=process.env;
- // Render environment variables are the deployment-level source of truth.
+ // A complete environment configuration takes precedence over database settings.
  if(env.SMTP_HOST&&env.SMTP_USER&&env.SMTP_PASSWORD&&env.SMTP_FROM_EMAIL&&env.SMTP_NOTIFICATION_EMAIL){
   return {host:env.SMTP_HOST,port:Number(env.SMTP_PORT||587),secure:env.SMTP_SECURE==='true',user:env.SMTP_USER,password:env.SMTP_PASSWORD,from_email:env.SMTP_FROM_EMAIL,from_name:env.SMTP_FROM_NAME||'Sakif Istiak',notification_email:env.SMTP_NOTIFICATION_EMAIL};
  }
  const {data,error}=await getSupabaseAdmin().from('app_settings').select('value').eq('key','smtp').maybeSingle();
  const saved=data?.value;
  if(!error && saved?.password_enc){
-  return {host:saved.host,port:Number(saved.port),secure:!!saved.secure,user:saved.user,password:decrypt(saved.password_enc),from_email:saved.from_email,from_name:saved.from_name||'Sakif Istiak',notification_email:saved.notification_email};
+  // Allow safe transport-only overrides (e.g. bypass a proxied DNS hostname)
+  // while retaining the encrypted SMTP credentials and recipient settings in Supabase.
+  return {
+   host:env.SMTP_HOST||saved.host,
+   port:Number(env.SMTP_PORT||saved.port||587),
+   secure:env.SMTP_SECURE===undefined?!!saved.secure:env.SMTP_SECURE==='true',
+   user:saved.user,
+   password:decrypt(saved.password_enc),
+   from_email:saved.from_email,
+   from_name:saved.from_name||'Sakif Istiak',
+   notification_email:saved.notification_email,
+  };
  }
  return null;
 }
