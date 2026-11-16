@@ -21,7 +21,8 @@ export async function POST(request: NextRequest) {
     const start = new Date(body.start || '');
     const duration = isMeetingType(meetingType) ? MEETING_TYPES[meetingType].duration : 0;
 
-    if (!name || name.length > 100 || !/^\S+@\S+\.\S+$/.test(email) || email.length > 254 || !topic || topic.length > 2000 || !duration || Number.isNaN(start.getTime())) {
+    const whatsappDigits = whatsapp.replace(/[+\s().-]/g, '');
+    if (!name || name.length > 100 || !/^\S+@\S+\.\S+$/.test(email) || email.length > 254 || !/^\+?[0-9\s().-]{8,20}$/.test(whatsapp) || whatsappDigits.length < 8 || whatsappDigits.length > 15 || !topic || topic.length > 2000 || !duration || Number.isNaN(start.getTime())) {
       return NextResponse.json({ error: 'Please complete all required fields with valid information.' }, { status: 400 });
     }
     if (start.getTime() < Date.now() + 5 * 60_000) return NextResponse.json({ error: 'Please choose a future time slot.' }, { status: 400 });
