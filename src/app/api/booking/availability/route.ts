@@ -5,6 +5,12 @@ export const dynamic = 'force-dynamic';
 
 type BusyPeriod = { start: string; end: string };
 
+// Limited daytime slots; most options are reserved for 4 PM–8 PM.
+function isPreferredSlot(hour: number, minute: number) {
+  if (hour === 10 || hour === 11 || hour === 14 || hour === 15) return minute === 0;
+  return hour >= 16 && hour < 20 && (minute === 0 || minute === 30);
+}
+
 function dateAtDhaka(date: string, hour: number, minute = 0) {
   return new Date(`${date}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:00+06:00`);
 }
@@ -36,7 +42,7 @@ export async function GET(request: NextRequest) {
     const duration = MEETING_TYPES[type].duration;
     const slots: string[] = [];
     for (let minutes = 10 * 60; minutes + duration <= 20 * 60; minutes += 30) {
-      const slotStart = dateAtDhaka(date, Math.floor(minutes / 60), minutes % 60);
+      const hour = Math.floor(minutes / 60);\n      const minute = minutes % 60;\n      if (!isPreferredSlot(hour, minute)) continue;\n      const slotStart = dateAtDhaka(date, hour, minute);
       const slotEnd = new Date(slotStart.getTime() + duration * 60_000);
       if (slotStart.getTime() <= Date.now() + 5 * 60_000) continue;
       const overlaps = busy.some((period) => slotStart < new Date(period.end) && slotEnd > new Date(period.start));
