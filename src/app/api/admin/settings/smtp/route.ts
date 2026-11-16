@@ -1,5 +1,5 @@
 import {NextRequest,NextResponse} from 'next/server';
-import {createCipheriv,createDecipheriv,createHash,randomBytes} from 'node:crypto';
+import {createCipheriv,createHash,randomBytes} from 'node:crypto';
 import {verifyAdminRequest} from '@/lib/admin-api';
 import {getSupabaseAdmin} from '@/lib/supabase';
 const key=()=>createHash('sha256').update(process.env.ADMIN_SESSION_SECRET||'').digest();
