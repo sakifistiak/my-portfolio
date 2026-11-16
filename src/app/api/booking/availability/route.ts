@@ -42,7 +42,10 @@ export async function GET(request: NextRequest) {
     const duration = MEETING_TYPES[type].duration;
     const slots: string[] = [];
     for (let minutes = 10 * 60; minutes + duration <= 20 * 60; minutes += 30) {
-      const hour = Math.floor(minutes / 60);\n      const minute = minutes % 60;\n      if (!isPreferredSlot(hour, minute)) continue;\n      const slotStart = dateAtDhaka(date, hour, minute);
+      const hour = Math.floor(minutes / 60);
+      const minute = minutes % 60;
+      if (!isPreferredSlot(hour, minute)) continue;
+      const slotStart = dateAtDhaka(date, hour, minute);
       const slotEnd = new Date(slotStart.getTime() + duration * 60_000);
       if (slotStart.getTime() <= Date.now() + 5 * 60_000) continue;
       const overlaps = busy.some((period) => slotStart < new Date(period.end) && slotEnd > new Date(period.start));
