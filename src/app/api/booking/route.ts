@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { calendarRequest, getGoogleAccessToken, MEETING_TYPES, TIME_ZONE, isMeetingType } from '@/lib/google-calendar';
 import { getSupabaseAdmin } from '@/lib/supabase';
+import { sendBookingEmail, getBookingMailSettings } from '@/lib/mailer';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,12 +30,9 @@ export async function POST(request: NextRequest) {
     const endHour = Number(new Intl.DateTimeFormat('en-GB', { timeZone: TIME_ZONE, hour: '2-digit', hourCycle: 'h23' }).format(end));
     if (startHour < 10 || endHour > 20) return NextResponse.json({ error: 'That time is outside the booking hours.' }, { status: 400 });
 
-    const resendKey = process.env.RESEND_API_KEY;
-    const notifyEmail = process.env.BOOKING_NOTIFICATION_EMAIL;
-    const fromEmail = process.env.BOOKING_FROM_EMAIL || 'Sakif Istiak <onboarding@resend.dev>';
-    if (!resendKey || !notifyEmail) {
-      return NextResponse.json({ error: 'Email notifications are not configured yet. Please try again later.' }, { status: 503 });
-    }
+    const mailSettings = await getBookingMailSettings();
+    if (!mailSettings?.password_enc) return NextResponse.json({ error: 'Booking email is not configured yet.' }, { status: 503 });
+    const notifyEmail = mailSettings.notification_email as string;
 
     const freeBusyResponse = await fetch('https://www.googleapis.com/calendar/v3/freeBusy', {
       method: 'POST',
@@ -107,26 +105,14 @@ export async function POST(request: NextRequest) {
     const safeTopic = escapeHtml(topic).replace(/\n/g, '<br>');
     const html = `<div style="font-family:Arial,sans-serif;line-height:1.6;color:#171717"><h2>New meeting booking</h2><p><b>Name:</b> ${safeName}<br><b>Email:</b> ${safeEmail}<br><b>Company:</b> ${safeCompany}<br><b>Meeting:</b> ${meetingLabel}<br><b>Date:</b> ${dateText}<br><b>Time:</b> ${timeText} (Asia/Dhaka)<br><b>Duration:</b> ${duration} minutes</p><h3>Discussion topic</h3><p>${safeTopic}</p><p>${event.hangoutLink ? `<b>Google Meet:</b> <a href="${event.hangoutLink}">${event.hangoutLink}</a><br>` : ''}<a href="${event.htmlLink || 'https://calendar.google.com/calendar/u/0/r'}">Open Google Calendar event</a></p></div>`;
 
-    const sendEmail = (to: string, subject: string, content: string, replyTo?: string) =>
-      fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ from: fromEmail, to: [to], ...(replyTo ? { reply_to: replyTo } : {}), subject, html: content }),
-        cache: 'no-store',
-      });
-
-    const adminEmail = await sendEmail(notifyEmail, `New meeting: ${meetingLabel} — ${name}`, html, email);
-    if (!adminEmail.ok) {
-      console.error('Admin booking email failed:', await adminEmail.text());
-      return NextResponse.json({ error: 'Your calendar booking was created, but the owner notification failed.' }, { status: 502 });
-    }
-
-    const confirmationHtml = `<div style="font-family:Arial,sans-serif;line-height:1.6;color:#171717"><h2>Your meeting is confirmed</h2><p>Hi ${safeName},</p><p>Your ${meetingLabel} with Sakif Istiak is booked for <b>${dateText}</b> at <b>${timeText} (Asia/Dhaka)</b>. Duration: ${duration} minutes.</p><p>${event.hangoutLink ? `Google Meet: <a href="${event.hangoutLink}">${event.hangoutLink}</a>` : 'A calendar invitation has been sent to your email.'}</p><p>Need to change plans? Reply to this email.</p></div>`;
-    const guestEmail = await sendEmail(email, `Confirmed: ${meetingLabel} with Sakif Istiak`, confirmationHtml, notifyEmail);
-    if (!guestEmail.ok) {
-      console.error('Guest confirmation email failed:', await guestEmail.text());
+    try {
+      await sendBookingEmail(notifyEmail, `New meeting: ${meetingLabel} — ${name}`, html, email);
+      const confirmationHtml = `<div style="font-family:Arial,sans-serif;line-height:1.6;color:#171717"><h2>Your meeting is confirmed</h2><p>Hi ${safeName},</p><p>Your ${meetingLabel} with Sakif Istiak is booked for <b>${dateText}</b> at <b>${timeText} (Asia/Dhaka)</b>. Duration: ${duration} minutes.</p><p>${event.hangoutLink ? `Google Meet: <a href="${event.hangoutLink}">${event.hangoutLink}</a>` : 'A calendar invitation has been sent to your email.'}</p><p>Need to change plans? Reply to this email.</p></div>`;
+      await sendBookingEmail(email, `Confirmed: ${meetingLabel} with Sakif Istiak`, confirmationHtml, notifyEmail);
+    } catch (mailError) {
+      console.error('Booking email delivery failed:', mailError);
       await supabase.from('bookings').update({ notification_status: 'failed' }).eq('id', booking.id);
-      return NextResponse.json({ error: 'Your calendar booking was created, but the confirmation email could not be sent.' }, { status: 502 });
+      return NextResponse.json({ error: 'Your calendar booking was created, but the email could not be sent. Please contact Sakif.' }, { status: 502 });
     }
 
     await supabase.from('bookings').update({ notification_status: 'sent' }).eq('id', booking.id);
