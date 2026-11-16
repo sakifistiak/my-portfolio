@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import Link from 'next/link';
 import { CalendarDays, Clock3, Video, ArrowRight, CheckCircle2, LoaderCircle } from 'lucide-react';
 
 const meetingTypes = [
@@ -78,7 +79,7 @@ export function BookingForm() {
       <CheckCircle2 className="mx-auto h-14 w-14 text-emerald-500" />
       <h1 className="mt-5 text-3xl font-semibold tracking-tight">Meeting booked!</h1>
       <p className="mt-3 text-sm leading-7 text-neutral-600 dark:text-neutral-300">Your booking has been added to the calendar. A confirmation email and calendar invitation should arrive shortly.</p>
-      <a href="/" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-5 py-3 text-sm font-medium text-white dark:bg-white dark:text-neutral-900">Back to portfolio <ArrowRight className="h-4 w-4" /></a>
+      <Link href="/" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-5 py-3 text-sm font-medium text-white dark:bg-white dark:text-neutral-900">Back to portfolio <ArrowRight className="h-4 w-4" /></Link>
     </section>
   );
 
