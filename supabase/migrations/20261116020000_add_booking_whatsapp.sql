@@ -1,0 +1,1 @@
+-- Store the guest's WhatsApp contact on each booking.\nALTER TABLE public.bookings\nADD COLUMN IF NOT EXISTS whatsapp_number TEXT;\n
