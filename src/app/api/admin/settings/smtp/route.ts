@@ -12,7 +12,7 @@ export async function GET(request:NextRequest){
 export async function PUT(request:NextRequest){
  if(!verifyAdminRequest(request))return NextResponse.json({error:'Unauthorized'},{status:401});
  const b=await request.json();const host=String(b.host||'').trim(),user=String(b.user||'').trim(),password=String(b.password||''),from_email=String(b.from_email||'').trim(),notification_email=String(b.notification_email||'').trim(),port=Number(b.port||587);
- if(!host||!user||!password||!/^\\S+@\\S+\\.\\S+$/.test(from_email)||!/^\\S+@\\S+\\.\\S+$/.test(notification_email)||!Number.isInteger(port)||port<1||port>65535||!process.env.ADMIN_SESSION_SECRET)return NextResponse.json({error:'Enter valid SMTP details.'},{status:400});
+ if(!host||!user||!password||!/^\S+@\S+\.\S+$/.test(from_email)||!/^\S+@\S+\.\S+$/.test(notification_email)||!Number.isInteger(port)||port<1||port>65535||!process.env.ADMIN_SESSION_SECRET)return NextResponse.json({error:'Enter valid SMTP details.'},{status:400});
  const value={host,port,secure:!!b.secure,user,password_enc:encrypt(password),from_email,from_name:String(b.from_name||'Sakif Istiak'),notification_email};
  const {error}=await getSupabaseAdmin().from('app_settings').upsert({key:'smtp',value});
  if(error)return NextResponse.json({error:'Could not save SMTP settings.'},{status:500});return NextResponse.json({success:true});
