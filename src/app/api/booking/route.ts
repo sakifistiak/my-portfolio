@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { calendarRequest, getGoogleAccessToken, MEETING_TYPES, TIME_ZONE, isMeetingType } from '@/lib/google-calendar';
+import { getSupabaseAdmin } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 
@@ -50,7 +51,31 @@ export async function POST(request: NextRequest) {
     }
 
     const meetingLabel = MEETING_TYPES[meetingType as keyof typeof MEETING_TYPES].label;
-    const event = await calendarRequest<{ id: string; htmlLink?: string; hangoutLink?: string }>('/events?sendUpdates=all&conferenceDataVersion=1', {
+    const supabase = getSupabaseAdmin();
+    const { data: booking, error: insertError } = await supabase.from('bookings').insert({
+      full_name: name,
+      email,
+      company: company || null,
+      meeting_type: meetingType,
+      meeting_label: meetingLabel,
+      topic,
+      start_at: start.toISOString(),
+      end_at: end.toISOString(),
+      timezone: TIME_ZONE,
+      status: 'pending',
+    }).select('id').single();
+
+    if (insertError || !booking) {
+      if (insertError?.code === '23P01' || insertError?.code === '23505') {
+        return NextResponse.json({ error: 'Sorry, this time was just booked. Please choose another slot.' }, { status: 409 });
+      }
+      console.error('Booking database insert failed:', insertError);
+      return NextResponse.json({ error: 'Could not save your booking. Please try again later.' }, { status: 503 });
+    }
+
+    let event: { id: string; htmlLink?: string; hangoutLink?: string };
+    try {
+      event = await calendarRequest<{ id: string; htmlLink?: string; hangoutLink?: string }>('/events?sendUpdates=all&conferenceDataVersion=1', {
       method: 'POST',
       body: JSON.stringify({
         summary: `${meetingLabel} — ${name}`,
@@ -62,7 +87,17 @@ export async function POST(request: NextRequest) {
         guestsCanInviteOthers: false,
         conferenceData: { createRequest: { requestId: crypto.randomUUID(), conferenceSolutionKey: { type: 'hangoutsMeet' } } },
       }),
-    });
+      });
+      await supabase.from('bookings').update({
+        status: 'confirmed',
+        google_event_id: event.id,
+        google_event_url: event.htmlLink || null,
+        google_meet_url: event.hangoutLink || null,
+      }).eq('id', booking.id);
+    } catch (calendarError) {
+      await supabase.from('bookings').update({ status: 'calendar_failed' }).eq('id', booking.id);
+      throw calendarError;
+    }
 
     const dateText = new Intl.DateTimeFormat('en-BD', { dateStyle: 'full', timeZone: TIME_ZONE }).format(start);
     const timeText = new Intl.DateTimeFormat('en-BD', { hour: 'numeric', minute: '2-digit', timeZone: TIME_ZONE }).format(start);
@@ -90,10 +125,12 @@ export async function POST(request: NextRequest) {
     const guestEmail = await sendEmail(email, `Confirmed: ${meetingLabel} with Sakif Istiak`, confirmationHtml, notifyEmail);
     if (!guestEmail.ok) {
       console.error('Guest confirmation email failed:', await guestEmail.text());
+      await supabase.from('bookings').update({ notification_status: 'failed' }).eq('id', booking.id);
       return NextResponse.json({ error: 'Your calendar booking was created, but the confirmation email could not be sent.' }, { status: 502 });
     }
 
-    return NextResponse.json({ success: true, eventUrl: event.htmlLink || null, meetUrl: event.hangoutLink || null });
+    await supabase.from('bookings').update({ notification_status: 'sent' }).eq('id', booking.id);
+    return NextResponse.json({ success: true, bookingId: booking.id, eventUrl: event.htmlLink || null, meetUrl: event.hangoutLink || null });
   } catch (error) {
     console.error('Booking creation error:', error);
     return NextResponse.json({ error: 'We could not complete your booking. Please try again.' }, { status: 503 });
