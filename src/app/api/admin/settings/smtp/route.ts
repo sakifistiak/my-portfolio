@@ -2,12 +2,13 @@ import {NextRequest,NextResponse} from 'next/server';
 import {createCipheriv,createHash,randomBytes} from 'node:crypto';
 import {verifyAdminRequest} from '@/lib/admin-api';
 import {getSupabaseAdmin} from '@/lib/supabase';
+import {getBookingMailSettings} from '@/lib/mailer';
 const key=()=>createHash('sha256').update(process.env.ADMIN_SESSION_SECRET||'').digest();
 const encrypt=(value:string)=>{const iv=randomBytes(12),cipher=createCipheriv('aes-256-gcm',key(),iv);const data=Buffer.concat([cipher.update(value,'utf8'),cipher.final()]);return [iv.toString('base64'),cipher.getAuthTag().toString('base64'),data.toString('base64')].join('.')};
 export async function GET(request:NextRequest){
  if(!verifyAdminRequest(request))return NextResponse.json({error:'Unauthorized'},{status:401});
- const {data}=await getSupabaseAdmin().from('app_settings').select('value').eq('key','smtp').maybeSingle();const v=data?.value||{};
- return NextResponse.json({host:v.host||'',port:v.port||587,secure:!!v.secure,user:v.user||'',from_email:v.from_email||'',from_name:v.from_name||'Sakif Istiak',notification_email:v.notification_email||'',configured:!!v.password_enc});
+ const v=await getBookingMailSettings();
+ return NextResponse.json({host:v?.host||'',port:v?.port||587,secure:!!v?.secure,user:v?.user||'',from_email:v?.from_email||'',from_name:v?.from_name||'Sakif Istiak',notification_email:v?.notification_email||'',configured:!!v?.configured});
 }
 export async function PUT(request:NextRequest){
  if(!verifyAdminRequest(request))return NextResponse.json({error:'Unauthorized'},{status:401});
