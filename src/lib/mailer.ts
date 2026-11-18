@@ -47,14 +47,6 @@ export async function sendBookingEmail(to:string,subject:string,html:string,repl
  await transporter.sendMail({from:`"${s.from_name}" <${s.from_email}>`,to,replyTo,subject,html});
 }
 
-export async function verifyBookingMailConnection(){
- const s=await loadMailSettings();
- if(!s)throw new Error('SMTP is not configured.');
- const transporter=nodemailer.createTransport({host:s.host,port:s.port,secure:s.secure,auth:{user:s.user,pass:s.password},connectionTimeout:8000,greetingTimeout:8000,socketTimeout:10000});
- await transporter.verify();
- return {host:s.host,port:s.port};
-}
-
 export async function getBookingMailSettings(){
  const s=await loadMailSettings();
  if(!s)return null;
